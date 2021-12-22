@@ -13,6 +13,7 @@ public class HelloWorld {
 		
 		Label label = new Label(shell, SWT.NONE);
 		label.setText("Hello World!");
+		label.setBounds(shell.getClientArea());
 		
 		shell.pack();
 		shell.open();
