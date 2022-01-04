@@ -3,13 +3,13 @@ package prototypes;
 public class Main {
 
 	public static void main(String[] args) {
-//		PassPoints pp = new PassPoints();
-//		pp.registration();
-//		System.out.println(pp.loginAttempt());
-		
+		// creates an empty instance of each password that will be used
+		AlphanumericPassword ap = new AlphanumericPassword();
+		PassPoints pp = new PassPoints();
 		PassTile pt = new PassTile();
-		pt.registration();
-		pt.loginAttempt();
+		
+		AlphaRegistration.registration(ap);
+		System.out.println(ap.getPassword());
 	}
 
 }
