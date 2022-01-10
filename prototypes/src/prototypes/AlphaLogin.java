@@ -66,6 +66,7 @@ public class AlphaLogin {
                 	display.dispose();
                 } else {
                 	errorLabel.setText("Incorrect! Please try again");
+                	password.setText("");
                 }
                 
             }

@@ -9,7 +9,9 @@ public class Main {
 		PassTile pt = new PassTile();
 		
 		AlphaRegistration.registration(ap);
-		AlphaLogin.login(ap);
+		if (ap.isSet) {
+			AlphaLogin.login(ap);
+		}
 	}
 
 }
