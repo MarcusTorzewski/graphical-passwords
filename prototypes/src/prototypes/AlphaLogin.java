@@ -1,11 +1,15 @@
 package prototypes;
 
-import org.eclipse.swt.*;
-import org.eclipse.swt.events.*;
-import org.eclipse.swt.widgets.*;
-import org.eclipse.swt.layout.*;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
-public class AlphaRegistration {
+public class AlphaLogin {
 	private static int xPosition = 40;
 	private static int yPosition = 30;
  	private static int width = 200;
@@ -15,8 +19,15 @@ public class AlphaRegistration {
 
  	private static int shellWidth = 300;
  	private static int shellHeight = 200;
-
-	public static void registration(AlphanumericPassword p) {
+ 	
+ 	private static String input = "";
+	
+	/**
+	 * Standard alphanumeric login. User enters their password and it is checked against the actual password. 
+	 * If it is incorrect the user tries again. 
+	 * @param p
+	 */
+	public static void login(AlphanumericPassword p) {
 		Display display = new Display();
 
  		Shell shell = new Shell(display);
@@ -43,13 +54,20 @@ public class AlphaRegistration {
 
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setBounds(xPosition,yPosition, width, height);
+        errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+        
 
         button.addSelectionListener(new SelectionAdapter() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
-                p.setPassword(password.getText());
-                display.dispose();
+                input = password.getText();
+                if (p.checkMatch(input)) {
+                	display.dispose();
+                } else {
+                	errorLabel.setText("Incorrect! Please try again");
+                }
+                
             }
         });
  		
@@ -63,4 +81,5 @@ public class AlphaRegistration {
  		display.dispose();
 		return;
 	}
+	
 }

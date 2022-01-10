@@ -9,7 +9,7 @@ public class Main {
 		PassTile pt = new PassTile();
 		
 		AlphaRegistration.registration(ap);
-		System.out.println(ap.getPassword());
+		AlphaLogin.login(ap);
 	}
 
 }
