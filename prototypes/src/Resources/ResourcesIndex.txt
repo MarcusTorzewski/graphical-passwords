@@ -1,0 +1,22 @@
+Resources:
+- Images
+- Tutorials
+- Advice (for methodologies and implementation decisions)
+
+	Images:
+	
+	
+	
+	
+	Tutorials:
+	- https://www.eclipse.org/articles/article.php?file=Article-Understanding-Layouts/index.html
+		Used for most of the layoutTutorial files to get an idea of SWT Layout
+	- https://www.vogella.com/tutorials/SWT/article.html#optional-exercise-use-swt-in-a-standalone-java-application
+	- https://self-learning-java-tutorial.blogspot.com/2016/11/eclipse-swt-tutorial.html
+		Used a mixture of these as references and tutorials to familiarise myself with SWT
+	
+	
+	
+	Methodology/implementation advice:
+	- https://www.pixelpin.io/how-to-choose-a-good-picture/
+		advice for which images suit PassPoints
