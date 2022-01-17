@@ -1,4 +1,4 @@
-package prototypes;
+package prototypes.Alphanumeric;
 
 import org.eclipse.swt.*;
 import org.eclipse.swt.events.*;
@@ -16,7 +16,7 @@ public class AlphaRegistration {
  	private static int shellWidth = 400;
  	private static int shellHeight = 200;
 
-	public static void registration(AlphanumericPassword p) {
+	public static void register(AlphanumericPassword p) {
 		Display display = new Display();
 
  		Shell shell = new Shell(display);

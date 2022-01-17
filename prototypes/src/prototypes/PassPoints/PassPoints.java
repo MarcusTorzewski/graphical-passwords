@@ -1,22 +1,42 @@
-package prototypes;
+package prototypes.PassPoints;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 
 public class PassPoints {
 	int capacity;
 	ArrayList<ArrayList<Integer>> points;
 	
-	PassPoints() {
+	public PassPoints() {
 		this.capacity = 0;
 		this.points = null;
 	}
 	
-	void registration() {
-		
-		
-		
-		
+//	void registration() {
+//		Display display = new Display();
+//		Shell shell = new Shell(display);
+//		
+//		GridLayout gridLayout = new GridLayout();
+//		gridLayout.numColumns = 1;
+// 		gridLayout.marginLeft = 5;
+// 		gridLayout.marginRight = 5;
+// 		gridLayout.marginTop = 5;
+// 		gridLayout.marginBottom = 5;
+// 		gridLayout.verticalSpacing = 5;
+//		
+//		GridData gridData = new GridData();
+// 		gridData.verticalAlignment = GridData.CENTER;
+//		
+//		Label infoLabel = new Label(shell, SWT.NONE);
+//        infoLabel.setText("Click on 5 points in this image:");
+//        infoLabel.setLayoutData(gridData);	
 //		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 //		
 //		System.out.println("Enter the length of your new password: ");
@@ -29,7 +49,7 @@ public class PassPoints {
 //	
 //		points = input;
 //		return;
-	}
+//	}
 	
 	boolean loginAttempt() {
 		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();

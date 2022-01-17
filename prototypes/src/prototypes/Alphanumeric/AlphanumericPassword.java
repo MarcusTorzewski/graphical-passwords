@@ -1,4 +1,4 @@
-package prototypes;
+package prototypes.Alphanumeric;
 
 public class AlphanumericPassword {
 	String password;

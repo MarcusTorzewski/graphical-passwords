@@ -1,4 +1,4 @@
-package prototypes;
+package prototypes.Alphanumeric;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -89,17 +89,18 @@ public class AlphaLogin {
  		Shell shell = new Shell(display);
  		shell.setSize(shellWidth, shellHeight);
  		
- 		GridLayout grid = new GridLayout();
- 		grid.numColumns = 1;
- 		grid.marginLeft = 5;
- 		grid.marginRight = 5;
- 		grid.marginTop = 5;
- 		grid.marginBottom = 5;
- 		grid.verticalSpacing = 5;
+ 		GridLayout gridLayout = new GridLayout();
+ 		gridLayout.numColumns = 1;
+ 		gridLayout.marginLeft = 5;
+ 		gridLayout.marginRight = 5;
+ 		gridLayout.marginTop = 5;
+ 		gridLayout.marginBottom = 5;
+ 		gridLayout.verticalSpacing = 5;
+ 		
  		GridData gridData = new GridData();
  		gridData.verticalAlignment = GridData.CENTER;
  
- 		shell.setLayout(grid);
+ 		shell.setLayout(gridLayout);
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Enter a password:");
