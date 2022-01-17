@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+// from: https://self-learning-java-tutorial.blogspot.com/2016/11/eclipse-swt-tutorial.html
 public class TextBox {
 	private static int xPosition = 30;
 	private static int yPosition = 30;
@@ -46,5 +47,4 @@ public class TextBox {
  		}
  		display.dispose();
  	}
- 	// https://self-learning-java-tutorial.blogspot.com/2016/11/eclipse-swt-tutorial.html
 }

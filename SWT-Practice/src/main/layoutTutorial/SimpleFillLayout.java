@@ -6,7 +6,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-// following this - https://www.eclipse.org/articles/article.php?file=Article-Understanding-Layouts/index.html
+// adapting this - https://www.eclipse.org/articles/article.php?file=Article-Understanding-Layouts/index.html
 public class SimpleFillLayout {
 
 	public static void main(String[] args) {

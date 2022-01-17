@@ -14,7 +14,8 @@ Resources:
 	- https://www.vogella.com/tutorials/SWT/article.html#optional-exercise-use-swt-in-a-standalone-java-application
 	- https://self-learning-java-tutorial.blogspot.com/2016/11/eclipse-swt-tutorial.html
 		Used a mixture of these as references and tutorials to familiarise myself with SWT
-	
+	- https://stackoverflow.com/questions/4447455/how-to-show-up-an-image-with-swt-in-java
+		Used to implement an image in SWT
 	
 	
 	Methodology/implementation advice:
