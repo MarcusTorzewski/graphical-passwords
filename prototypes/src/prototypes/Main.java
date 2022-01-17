@@ -10,7 +10,7 @@ public class Main {
 		
 		AlphaRegistration.registration(ap);
 		if (ap.isSet) {
-			AlphaLogin.login(ap);
+			AlphaLogin.login2(ap);
 		}
 	}
 

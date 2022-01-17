@@ -13,50 +13,40 @@ public class PassPoints {
 	}
 	
 	void registration() {
-		Scanner sc = new Scanner(System.in);
-		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 		
-		System.out.println("Enter the length of your new password: ");
-		capacity = Integer.parseInt(sc.next()); // -1?
 		
-		ArrayList<Integer> p = new ArrayList<Integer>();
-		for (int i = 1; i <= capacity; i++) {
-            System.out.println("Please enter point " + i + " x: ");
-            p.add(Integer.parseInt(sc.next()));
-            System.out.println("Please enter point " + i + " y : ");
-            p.add(Integer.parseInt(sc.next()));
-            
-            input.add(p);
-		}
-	
 		
-		sc.close();
-		points = input;
-		return;
+		
+//		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
+//		
+//		System.out.println("Enter the length of your new password: ");
+//		
+//		ArrayList<Integer> p = new ArrayList<Integer>();
+//		for (int i = 1; i <= capacity; i++) {
+//
+//            input.add(p);
+//		}
+//	
+//		points = input;
+//		return;
 	}
 	
 	boolean loginAttempt() {
-		Scanner sc = new Scanner(System.in);
 		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 		
 		
-//		System.out.println("Enter the length of your new password: ");
-//		int cap = Integer.parseInt(sc.next());
+
+
 		
 		ArrayList<Integer> p = new ArrayList<Integer>();
 		System.out.println("Enter the points of your password: ");
 		for (int i = 1; i <= capacity; i++) {
-            System.out.println("Please enter point " + i + " x: ");
-            p.add(Integer.parseInt(sc.next()));
-            System.out.println("Please enter point " + i + " y : ");
-            p.add(Integer.parseInt(sc.next()));
+
             
             input.add(p);
         }
 		
 
-		
-		sc.close();
 		if (input == points) {
 			return true;
 		} else {
@@ -65,7 +55,6 @@ public class PassPoints {
 	}
 	
 	boolean loginAttemptWithSelectionOfPoints() {
-		Scanner sc = new Scanner(System.in);
 		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 		ArrayList<ArrayList<Integer>> solution = new ArrayList<ArrayList<Integer>>();
 		
@@ -94,15 +83,9 @@ public class PassPoints {
 		
 		ArrayList<Integer> p = new ArrayList<Integer>();
 		System.out.println("Please input points " + i + " of your password:");
-		for (int j = 0; j <= n; j++) {
-            System.out.println("Please enter point " + i + " x: ");
-            p.add(Integer.parseInt(sc.next()));
-            System.out.println("Please enter point " + i + " y : ");
-            p.add(Integer.parseInt(sc.next()));
-            
+		for (int j = 0; j <= n; j++) {       
             input.add(p);
 		}
-		sc.close();
 		
 		if (input == solution) {
 			return true;
