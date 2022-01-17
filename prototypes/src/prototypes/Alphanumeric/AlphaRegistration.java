@@ -35,9 +35,9 @@ public class AlphaRegistration {
  		
  		yPosition += 40;
  		
- 		Button button = new Button(shell, SWT.PUSH);
- 		button.setBounds(xPosition,yPosition, width, height);
-        button.setText("Show Password");
+ 		Button confirmButton = new Button(shell, SWT.PUSH);
+ 		confirmButton.setBounds(xPosition,yPosition, width, height);
+        confirmButton.setText("Show Password");
 
         xPosition -= 40;
  		yPosition += 40;
@@ -46,7 +46,7 @@ public class AlphaRegistration {
         errorLabel.setBounds(xPosition,yPosition, 300, height);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
 
-        button.addSelectionListener(new SelectionAdapter() {
+        confirmButton.addSelectionListener(new SelectionAdapter() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {

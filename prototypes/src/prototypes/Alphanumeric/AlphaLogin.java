@@ -46,9 +46,9 @@ public class AlphaLogin {
  		
  		yPosition += 40;
  		
- 		Button button = new Button(shell, SWT.PUSH);
- 		button.setBounds(xPosition,yPosition, width, height);
-        button.setText("Show Password");
+ 		Button attemptButton = new Button(shell, SWT.PUSH);
+ 		attemptButton.setBounds(xPosition,yPosition, width, height);
+        attemptButton.setText("Show Password");
 
  		yPosition += 40;
 
@@ -57,7 +57,7 @@ public class AlphaLogin {
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         
 
-        button.addSelectionListener(new SelectionAdapter() {
+        attemptButton.addSelectionListener(new SelectionAdapter() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -68,7 +68,6 @@ public class AlphaLogin {
                 	errorLabel.setText("Incorrect! Please try again");
                 	password.setText("");
                 }
-                
             }
         });
  		
@@ -104,21 +103,25 @@ public class AlphaLogin {
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Enter a password:");
-        infoLabel.setSize(width, height);
+//        infoLabel.setSize(width, height);
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         infoLabel.setLayoutData(gridData);
  		
  		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
  		password.setText("");
  		password.setTextLimit(10);
+ 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
  		password.setLayoutData(gridData);
 
  		Button attemptButton = new Button(shell, SWT.PUSH);
         attemptButton.setText("Show Password");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         attemptButton.setLayoutData(gridData);
 
         Label errorLabel = new Label(shell, SWT.NONE);
-//        errorLabel.setLayoutData(gridData);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        errorLabel.setLayoutData(gridData);
         
         attemptButton.addSelectionListener(new SelectionAdapter() {
 
@@ -128,11 +131,10 @@ public class AlphaLogin {
                 if (p.checkMatch(input)) {
                 	display.dispose();
                 } else {
-                	errorLabel.setText("Incorrect! Please try again");
+                	errorLabel.setText("Incorrect! Please try again.");
                 	password.setText("");
                 	shell.pack();
                 }
-                
             }
         });
  		
