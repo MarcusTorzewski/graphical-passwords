@@ -12,13 +12,14 @@ public class Main {
 		PassPoints pp = new PassPoints();
 		PassTile pt = new PassTile();
 		
-		AlphaRegistration.register(ap);
-		if (ap.isSet()) {
-			AlphaLogin.login2(ap);
-		}
+//		AlphaRegistration.register(ap);
+//		if (ap.isSet()) {
+//			AlphaLogin.login2(ap);
+//		}
 		
-//		PassPointsRegistration.registration(pp);
+		PassPointsRegistration.registration(pp);
 //		System.out.println(pp.getPoints());
+		PassPointsLogin.login(pp);
 	}
 
 }

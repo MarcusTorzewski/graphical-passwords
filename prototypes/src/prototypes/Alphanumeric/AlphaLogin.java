@@ -25,7 +25,8 @@ public class AlphaLogin {
 	/**
 	 * Standard alphanumeric login. User enters their password and it is checked against the actual password. 
 	 * If it is incorrect the user tries again. 
-	 * @param p
+	 * @param p AlphanumericPassword class set at registration. If the password has not yet
+	 * been set the user will receive a pop-up saying as such.
 	 */
 	public static void login(AlphanumericPassword p) {
 		Display display = new Display();
