@@ -98,6 +98,7 @@ public class PassPointsRegistration {
             		password.setImageCode(0);
             		password.setPoints(input);
             		password.setSize(5);
+            		Popup.registrationSuccess(display);
             		display.dispose();
             		return;
             	} else {
