@@ -15,6 +15,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import prototypes.Popup;
+
 public class PassPointsLogin {
 	
 	/**
@@ -142,8 +144,8 @@ public class PassPointsLogin {
             	}
             	
             	if (correctCounter == p.getSize()) {
-            		// placeholder
-            		System.out.println("WOO! ^.^");
+            		Popup.loginSuccess(display);
+            		display.dispose();
             		return;
             	} else {
             		input.clear();

@@ -15,6 +15,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import prototypes.Popup;
+
 public class PassPointsRegistration {
 	
 	public static void registration(PassPoints password) {

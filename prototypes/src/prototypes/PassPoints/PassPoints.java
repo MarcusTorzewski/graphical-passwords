@@ -48,69 +48,6 @@ public class PassPoints {
 		ImageCode = imageCode;
 	}
 	
-	
-	
-	
-//	void registration() {
-//		Display display = new Display();
-//		Shell shell = new Shell(display);
-//		
-//		GridLayout gridLayout = new GridLayout();
-//		gridLayout.numColumns = 1;
-// 		gridLayout.marginLeft = 5;
-// 		gridLayout.marginRight = 5;
-// 		gridLayout.marginTop = 5;
-// 		gridLayout.marginBottom = 5;
-// 		gridLayout.verticalSpacing = 5;
-//		
-//		GridData gridData = new GridData();
-// 		gridData.verticalAlignment = GridData.CENTER;
-//		
-//		Label infoLabel = new Label(shell, SWT.NONE);
-//        infoLabel.setText("Click on 5 points in this image:");
-//        infoLabel.setLayoutData(gridData);	
-//		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
-//		
-//		System.out.println("Enter the length of your new password: ");
-//		
-//		ArrayList<Integer> p = new ArrayList<Integer>();
-//		for (int i = 1; i <= capacity; i++) {
-//
-//            input.add(p);
-//		}
-//	
-//		points = input;
-//		return;
-//	}
-	
-
-
-
-
-	boolean loginAttempt() {
-//		ArrayList<TuplePair> input = new ArrayList<TuplePair>();
-//		
-//		
-//
-//
-//		
-//		TuplePair p = new TuplePair();
-//		System.out.println("Enter the points of your password: ");
-//		for (int i = 1; i <= capacity; i++) {
-//
-//            
-//            input.add(p);
-//        }
-//		
-//
-//		if (input == points) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-		return false;
-	}
-	
 	boolean loginAttemptWithSelectionOfPoints() {
 //		ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 //		ArrayList<ArrayList<Integer>> solution = new ArrayList<ArrayList<Integer>>();
