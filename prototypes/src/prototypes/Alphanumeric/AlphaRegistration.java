@@ -3,48 +3,57 @@ package prototypes.Alphanumeric;
 import org.eclipse.swt.*;
 import org.eclipse.swt.events.*;
 import org.eclipse.swt.widgets.*;
+
+import prototypes.Popup;
+
 import org.eclipse.swt.layout.*;
 
 public class AlphaRegistration {
-	private static int xPosition = 80;
-	private static int yPosition = 30;
- 	private static int width = 200;
- 	private static int height = 30;
- 	private static int scrollWidth = 500;
- 	private static int scrollHeight = 350;
-
- 	private static int shellWidth = 400;
- 	private static int shellHeight = 200;
-
+	
+	/**
+	 * Standard alphanumeric password registration. User enters a password. It is checked against the conditions.
+	 * If the password satisfies the conditions it is accepted and the password is set. If not the user tries again.
+	 * @param p AlphanumericPassword class. isSet() can be either true or false. 
+	 * The existing password will be overwritten.
+	 */
 	public static void register(AlphanumericPassword p) {
 		Display display = new Display();
 
  		Shell shell = new Shell(display);
- 		shell.setSize(shellWidth, shellHeight);
+ 		
+ 		GridLayout gridLayout = new GridLayout();
+ 		gridLayout.numColumns = 1;
+ 		gridLayout.marginLeft = 15;
+ 		gridLayout.marginRight = 15;
+ 		gridLayout.marginTop = 15;
+ 		gridLayout.marginBottom = 15;
+ 		gridLayout.verticalSpacing = 5;
+ 		
+ 		GridData gridData = new GridData();
+ 		gridData.verticalAlignment = GridData.CENTER;
+ 
+ 		shell.setLayout(gridLayout);
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
-        infoLabel.setBounds(xPosition,yPosition, width, height);
-        infoLabel.setText("Enter a password containing 5 or more characters:");
- 		
- 		yPosition += 30;
+        infoLabel.setText("Enter a password:");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        infoLabel.setLayoutData(gridData);
  		
  		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
  		password.setText("");
- 		password.setBounds(xPosition,yPosition, width, height);
  		password.setTextLimit(10);
- 		
- 		yPosition += 40;
- 		
- 		Button confirmButton = new Button(shell, SWT.PUSH);
- 		confirmButton.setBounds(xPosition,yPosition, width, height);
-        confirmButton.setText("Show Password");
+ 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+ 		password.setLayoutData(gridData);
 
-        xPosition -= 40;
- 		yPosition += 40;
+ 		Button confirmButton = new Button(shell, SWT.PUSH);
+        confirmButton.setText("Show Password");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        confirmButton.setLayoutData(gridData);
 
         Label errorLabel = new Label(shell, SWT.NONE);
-        errorLabel.setBounds(xPosition,yPosition, 300, height);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        errorLabel.setLayoutData(gridData);
 
         confirmButton.addSelectionListener(new SelectionAdapter() {
 
@@ -52,15 +61,17 @@ public class AlphaRegistration {
             public void widgetSelected(SelectionEvent e) {
             	if (password.getText().length() > 5) {
 					p.setPassword(password.getText());
+					Popup.registrationSuccess(display);
 					display.dispose();
             	} else {
             		errorLabel.setText("Your password must be over 5 characters long.");
             		password.setText("");
+            		shell.pack();
             	}
             }
         });
  		
- 		
+        shell.pack();
  		shell.open();
  		
  		while(!shell.isDisposed()) {

@@ -11,15 +11,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-public class AlphaLogin {
-	private static int xPosition = 40;
-	private static int yPosition = 30;
- 	private static int width = 200;
- 	private static int height = 30;
+import prototypes.Popup;
 
- 	private static int shellWidth = 300;
- 	private static int shellHeight = 200;
- 	
+public class AlphaLogin {
  	private static String input = "";
 	
 	/**
@@ -32,69 +26,13 @@ public class AlphaLogin {
 		Display display = new Display();
 
  		Shell shell = new Shell(display);
- 		shell.setSize(shellWidth, shellHeight);
- 		
- 		Label infoLabel = new Label(shell, SWT.NONE);
-        infoLabel.setBounds(xPosition,yPosition, width, height);
-        infoLabel.setText("Enter a password:");
- 		
- 		yPosition += 30;
- 		
- 		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		password.setText("");
- 		password.setBounds(xPosition,yPosition, width, height);
- 		password.setTextLimit(10);
- 		
- 		yPosition += 40;
- 		
- 		Button attemptButton = new Button(shell, SWT.PUSH);
- 		attemptButton.setBounds(xPosition,yPosition, width, height);
-        attemptButton.setText("Show Password");
-
- 		yPosition += 40;
-
-        Label errorLabel = new Label(shell, SWT.NONE);
-        errorLabel.setBounds(xPosition,yPosition, width, height);
-        errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
-        
-
-        attemptButton.addSelectionListener(new SelectionAdapter() {
-
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                input = password.getText();
-                if (p.checkMatch(input)) {
-                	display.dispose();
-                } else {
-                	errorLabel.setText("Incorrect! Please try again");
-                	password.setText("");
-                }
-            }
-        });
- 		
- 		
- 		shell.open();
- 		
- 		while(!shell.isDisposed()) {
- 			if (!display.readAndDispatch())
- 				display.sleep();
- 		}
- 		display.dispose();
-		return;
-	}
-	
-	public static void login2(AlphanumericPassword p) {
-		Display display = new Display();
-
- 		Shell shell = new Shell(display);
- 		shell.setSize(shellWidth, shellHeight);
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 1;
- 		gridLayout.marginLeft = 5;
- 		gridLayout.marginRight = 5;
- 		gridLayout.marginTop = 5;
- 		gridLayout.marginBottom = 5;
+ 		gridLayout.marginLeft = 15;
+ 		gridLayout.marginRight = 15;
+ 		gridLayout.marginTop = 15;
+ 		gridLayout.marginBottom = 15;
  		gridLayout.verticalSpacing = 5;
  		
  		GridData gridData = new GridData();
@@ -104,7 +42,6 @@ public class AlphaLogin {
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Enter a password:");
-//        infoLabel.setSize(width, height);
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         infoLabel.setLayoutData(gridData);
  		
@@ -114,22 +51,23 @@ public class AlphaLogin {
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
  		password.setLayoutData(gridData);
 
- 		Button attemptButton = new Button(shell, SWT.PUSH);
-        attemptButton.setText("Show Password");
+ 		Button confirmButton = new Button(shell, SWT.PUSH);
+        confirmButton.setText("Show Password");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        attemptButton.setLayoutData(gridData);
+        confirmButton.setLayoutData(gridData);
 
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         errorLabel.setLayoutData(gridData);
         
-        attemptButton.addSelectionListener(new SelectionAdapter() {
+        confirmButton.addSelectionListener(new SelectionAdapter() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
                 input = password.getText();
                 if (p.checkMatch(input)) {
+                	Popup.loginSuccess(display);
                 	display.dispose();
                 } else {
                 	errorLabel.setText("Incorrect! Please try again.");
