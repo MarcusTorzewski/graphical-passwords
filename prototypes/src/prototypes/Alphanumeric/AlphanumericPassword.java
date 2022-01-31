@@ -1,8 +1,8 @@
 package prototypes.Alphanumeric;
 
 public class AlphanumericPassword {
-	String password;
-	boolean isSet = false;
+	private String password;
+	private boolean isSet = false;
 	
 	public String getPassword() {
 		return password;

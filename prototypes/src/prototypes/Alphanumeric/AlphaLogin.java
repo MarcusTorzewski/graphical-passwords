@@ -88,6 +88,7 @@ public class AlphaLogin {
  			if (!display.readAndDispatch())
  				display.sleep();
  		}
+ 		
  		display.dispose();
 		return;
 	}

@@ -39,6 +39,12 @@ public class AlphaRegistration {
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         infoLabel.setLayoutData(gridData);
         
+        
+        Label errorLabel = new Label(shell, SWT.NONE);
+        errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        errorLabel.setLayoutData(gridData);
+        
  		
  		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
  		password.setText("");
@@ -46,29 +52,36 @@ public class AlphaRegistration {
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
  		password.setLayoutData(gridData);
  		
+ 		
+ 		Text passwordCheck = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+ 		passwordCheck.setText("");
+ 		passwordCheck.setTextLimit(10);
+ 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+ 		passwordCheck.setLayoutData(gridData);
+ 		
 
  		Button confirmButton = new Button(shell, SWT.PUSH);
-        confirmButton.setText("Show Password");
+        confirmButton.setText("Confirm");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         confirmButton.setLayoutData(gridData);
-        
-
-        Label errorLabel = new Label(shell, SWT.NONE);
-        errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        errorLabel.setLayoutData(gridData);
         
 
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if (password.getText().length() > 5) {
+            	if ((password.getText().length() > 5) && (password.getText() == passwordCheck.getText())) {
 					p.setPassword(password.getText());
 					Popup.registrationSuccess(display);
 					display.dispose();
-            	} else {
+            	} else if (!(password.getText().length() > 5)) {
             		errorLabel.setText("Your password must be over 5 characters long.");
             		password.setText("");
+            		passwordCheck.setText("");
+            		shell.pack();
+            	} else {
+            		errorLabel.setText("Your password does not match.");
+            		password.setText("");
+            		passwordCheck.setText("");
             		shell.pack();
             	}
             }

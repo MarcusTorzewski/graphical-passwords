@@ -1,6 +1,7 @@
 package prototypes;
 
 import prototypes.Alphanumeric.*;
+import prototypes.PIN.*;
 import prototypes.PassPoints.*;
 
 public class Main {
@@ -9,12 +10,17 @@ public class Main {
 	public static void main(String[] args) {
 		// creates an empty instance of each password that will be used
 		AlphanumericPassword ap = new AlphanumericPassword();
+		PIN pin = new PIN();
 		PassPoints pp = new PassPoints();
-		PassTile pt = new PassTile();
 		
-		AlphaRegistration.register(ap);
-		if (ap.isSet()) {
-			AlphaLogin.login(ap);
+//		AlphaRegistration.register(ap);
+//		if (ap.isSet()) {
+//			AlphaLogin.login(ap);
+//		}
+		
+		PINRegistration.register(pin);
+		if (pin.isSet()) {
+			PINLogin.login(pin);
 		}
 		
 //		PassPointsRegistration.registration(pp);
