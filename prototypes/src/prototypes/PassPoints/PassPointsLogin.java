@@ -59,11 +59,13 @@ public class PassPointsLogin {
  		GridData gridData;
 
  		shell.setLayout(gridLayout);
+ 		
 		
 		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Double-click on " + PassPoints.CAPACITY + "  points in this image:");
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
         infoLabel.setLayoutData(gridData);
+        
         
         Button confirmButton = new Button(shell, SWT.PUSH);
         confirmButton.setText("Confirm");
@@ -72,12 +74,11 @@ public class PassPointsLogin {
         confirmButton.setLayoutData(gridData);
         
         
-    
-        
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
         errorLabel.setLayoutData(gridData);
+        
         
         Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream(imageFileName));
         Label photo = new Label (shell, SWT.BORDER);
@@ -115,6 +116,7 @@ public class PassPointsLogin {
 			@Override
 			public void mouseUp(MouseEvent e) { return; }
         });
+        
         
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -155,6 +157,7 @@ public class PassPointsLogin {
             	}
             }  
         });
+        
         
         shell.pack();
         shell.open();

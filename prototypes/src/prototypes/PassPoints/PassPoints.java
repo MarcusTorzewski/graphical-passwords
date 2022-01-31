@@ -15,12 +15,12 @@ public class PassPoints {
 	
 	private int size;
 	private ArrayList<TuplePair> points;
-	private int ImageCode;
+	private int imageCode;
 	
 	public PassPoints() {
 		this.size = 0;
 		this.points = null;
-		this.ImageCode = -1;
+		this.imageCode = -1;
 	}
 	
 	public int getSize() {
@@ -41,11 +41,11 @@ public class PassPoints {
 	}
 	
 	public int getImageCode() {
-		return ImageCode;
+		return imageCode;
 	}
 	
-	public void setImageCode(int imageCode) {
-		ImageCode = imageCode;
+	public void setImageCode(int code) {
+		imageCode = code;
 	}
 	
 	boolean loginAttemptWithSelectionOfPoints() {

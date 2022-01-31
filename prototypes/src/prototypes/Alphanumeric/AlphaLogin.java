@@ -24,7 +24,6 @@ public class AlphaLogin {
 	 */
 	public static void login(AlphanumericPassword p) {
 		Display display = new Display();
-
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -40,29 +39,33 @@ public class AlphaLogin {
  
  		shell.setLayout(gridLayout);
  		
+ 		
  		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Enter a password:");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         infoLabel.setLayoutData(gridData);
+        
  		
  		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
  		password.setText("");
  		password.setTextLimit(10);
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
  		password.setLayoutData(gridData);
+ 		
 
  		Button confirmButton = new Button(shell, SWT.PUSH);
         confirmButton.setText("Show Password");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         confirmButton.setLayoutData(gridData);
+        
 
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         errorLabel.setLayoutData(gridData);
         
+        
         confirmButton.addSelectionListener(new SelectionAdapter() {
-
             @Override
             public void widgetSelected(SelectionEvent e) {
                 input = password.getText();
@@ -76,6 +79,7 @@ public class AlphaLogin {
                 }
             }
         });
+        
  		
  		shell.pack();
  		shell.open();

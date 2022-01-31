@@ -27,10 +27,12 @@ public class Popup {
 		
 		shell.setLayout(gridLayout);
 		
+		
 		infoLabel = new Label(shell, SWT.NONE);
 		infoLabel.setText("Success! You have logged in.");
 		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
 		infoLabel.setLayoutData(gridData);
+		
 		
 		confirmButton = new Button(shell, SWT.PUSH);
 		confirmButton.setText("OK");
@@ -44,6 +46,7 @@ public class Popup {
 				return;
 			}
 		});
+		
 		
 		shell.pack();
         shell.open();
@@ -70,10 +73,12 @@ public class Popup {
 		
 		shell.setLayout(gridLayout);
 		
+		
 		infoLabel = new Label(shell, SWT.NONE);
 		infoLabel.setText("Success! You have created a password.");
 		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
 		infoLabel.setLayoutData(gridData);
+		
 		
 		confirmButton = new Button(shell, SWT.PUSH);
 		confirmButton.setText("OK");
@@ -87,6 +92,7 @@ public class Popup {
 				return;
 			}
 		});
+		
 		
 		shell.pack();
         shell.open();
@@ -129,10 +135,12 @@ public class Popup {
 		
 		shell.setLayout(gridLayout);
 		
+		
 		infoLabel = new Label(shell, SWT.NONE);
 		infoLabel.setText("You have not set a " + password + " password!");
 		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
 		infoLabel.setLayoutData(gridData);
+		
 		
 		confirmButton = new Button(shell, SWT.PUSH);
 		confirmButton.setText("OK");
@@ -146,6 +154,7 @@ public class Popup {
 				return;
 			}
 		});
+		
 		
 		shell.pack();
         shell.open();
