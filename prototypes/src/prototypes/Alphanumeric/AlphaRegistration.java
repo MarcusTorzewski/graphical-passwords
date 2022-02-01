@@ -69,7 +69,8 @@ public class AlphaRegistration {
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if ((password.getText().length() > 5) && (password.getText() == passwordCheck.getText())) {
+//            	System.out.println(password.getText() == passwordCheck.getText());
+            	if ((password.getText().length() > 5) && (password.getText().equals(passwordCheck.getText()))) {
 					p.setPassword(password.getText());
 					Popup.registrationSuccess(display);
 					display.dispose();
