@@ -80,7 +80,7 @@ public class PassPointsLogin {
         errorLabel.setLayoutData(gridData);
         
         
-        Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream(imageFileName));
+        Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream("./Images/" + imageFileName));
         Label photo = new Label (shell, SWT.BORDER);
         gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
         gridData.horizontalSpan = 2;
@@ -93,8 +93,7 @@ public class PassPointsLogin {
 				System.out.println(e.x + " " + e.y);
 				
 				if (input.size() == PassPoints.CAPACITY) {
-					System.out.println(input);
-					errorLabel.setText("You've picked already picked " + PassPoints.CAPACITY + " points!");
+					errorLabel.setText("You've already picked " + PassPoints.CAPACITY + " points!");
 					shell.pack();
 					return;
 				}
