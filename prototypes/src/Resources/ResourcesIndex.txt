@@ -6,6 +6,7 @@ Resources:
 	Images:
 	- https://www.behance.net/gallery/54310993/WEO-ICONS-Free-Icon-Set
 		Used as the icons for PassTiles images
+	- find image used in passPoints
 	
 	
 	

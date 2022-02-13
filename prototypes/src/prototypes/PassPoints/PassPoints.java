@@ -16,19 +16,17 @@ public class PassPoints {
 	private int size;
 	private ArrayList<TuplePair> points;
 	private int imageCode;
+	private boolean isSet;
 	
 	public PassPoints() {
 		this.size = 0;
 		this.points = null;
 		this.imageCode = -1;
+		this.isSet = false;
 	}
 	
 	public int getSize() {
 		return size;
-	}
-	
-	public void setSize(int size) {
-		this.size = size;
 	}
 
 	public ArrayList<TuplePair> getPoints() {
@@ -38,6 +36,8 @@ public class PassPoints {
 
 	public void setPoints(ArrayList<TuplePair> points) {
 		this.points = points;
+		this.size = points.size();
+		this.isSet = true;
 	}
 	
 	public int getImageCode() {
@@ -46,6 +46,10 @@ public class PassPoints {
 	
 	public void setImageCode(int code) {
 		imageCode = code;
+	}
+	
+	public boolean isSet() {
+		return isSet;
 	}
 	
 	boolean loginAttemptWithSelectionOfPoints() {
@@ -88,4 +92,5 @@ public class PassPoints {
 //		}
 		return false;
 	}
+
 }

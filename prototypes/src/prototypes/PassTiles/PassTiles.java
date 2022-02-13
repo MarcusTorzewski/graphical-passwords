@@ -17,18 +17,16 @@ public class PassTiles {
 	
 	private int size;
 	private ArrayList<String> tiles;
+	private boolean isSet;
 	
 	public PassTiles() {
 		this.size = 0;
 		this.tiles = null;
+		this.isSet = false;
 	}
 
 	public int getSize() {
 		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 
 	public ArrayList<String> getTiles() {
@@ -37,5 +35,11 @@ public class PassTiles {
 
 	public void setTiles(ArrayList<String> tiles) {
 		this.tiles = tiles;
+		this.size = tiles.size();
+		this.isSet = true;
 	}
+
+	public boolean isSet() {
+		return isSet;
+	}	
 }

@@ -10,26 +10,31 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
 import prototypes.PassPoints.PassPoints;
 
-public class PassTilesRegistration {
+public class PassTilesLogin {
 	
-	public static void registration(PassTiles password) {
+	public static void login(PassTiles password) {
 		ArrayList<String> input = new ArrayList<String>();
-		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES);
-		ArrayList<String> toDisplay = new ArrayList<String>();
+		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES); // remove users tiles
+		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
+		remaining.removeAll(toDisplay); // should remove users password from remaining (no duplicates)
 		Random r = new Random();
 		
-		// toDisplay is populated randomly with GRID_SIZE strings from remaining
-		// toDisplay is then used to populate the GUI
-		for (int i = 0; i < PassTiles.GRID_SIZE; i++) {
+		// (PassTiles.GRID_SIZE - password.getSize()) should account for the initial size of toDisplay
+		for (int i = 0; i < (PassTiles.GRID_SIZE - password.getSize()); i++) {
 			int n = r.nextInt(remaining.size() - 1);
 			toDisplay.add(remaining.get(n));
 			remaining.remove(n);
 		}
+		
+		Collections.shuffle(toDisplay); // needed to make sure the users password isn't just the first 5 icons
 		
 		System.out.println(remaining);
 		System.out.println(toDisplay);
@@ -109,17 +114,25 @@ public class PassTilesRegistration {
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
             public void widgetSelected(SelectionEvent e) {
-            	if (input.size() == PassTiles.CAPACITY) {
-            		Collections.sort(input);
-            		password.setTiles(input);
-            		Popup.registrationSuccess(display);
+            	if (input.size() != PassTiles.CAPACITY) {
+            		input.clear();
+            		errorLabel.setText("Your password must be " + PassTiles.CAPACITY + " points long. You're password so far has been deleted :)");
+            		shell.pack();
+            		return;
+            	} 
+            	
+            	Collections.sort(input);
+            	if (password.getTiles().equals(input)){
+            		Popup.loginSuccess(display);
             		display.dispose();
             		return;
             	} else {
             		input.clear();
-            		errorLabel.setText("Your password must be " + PassTiles.CAPACITY + " points long. You're password so far has been deleted :)");
+            		errorLabel.setText("Your password did not match your entry. Please try again.");
+            		shell.pack();
+            		return;
             	}
-            }  
+            }
         });
         
         
@@ -134,5 +147,4 @@ public class PassTilesRegistration {
         
         display.dispose();
 	}
-
 }
