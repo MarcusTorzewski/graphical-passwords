@@ -13,11 +13,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 
 import prototypes.Popup;
-import prototypes.PassPoints.PassPoints;
 
 public class PassTilesRegistration {
 	
-	public static void registration(PassTiles password) {
+	public static void registration(Display display, PassTiles password) {
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>();
@@ -34,7 +33,6 @@ public class PassTilesRegistration {
 		System.out.println(remaining);
 		System.out.println(toDisplay);
 		
-		Display display = new Display();
 		Shell shell = new Shell(display);
 		
 		GridLayout gridLayout = new GridLayout();
@@ -49,7 +47,7 @@ public class PassTilesRegistration {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Double-click on " + PassPoints.CAPACITY + "  image:");
+ 		infoLabel.setText("Double-click on " + PassTiles.CAPACITY + "  image:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);

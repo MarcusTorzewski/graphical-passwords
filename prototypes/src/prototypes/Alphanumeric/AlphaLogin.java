@@ -25,8 +25,7 @@ public class AlphaLogin {
 	 * @param p AlphanumericPassword class set at registration. If the password has not yet
 	 * been set the user will receive a pop-up saying as such.
 	 */
-	public static void login(AlphanumericPassword p) {
-		Display display = new Display();
+	public static void login(Display display, AlphanumericPassword p) {
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -96,7 +95,7 @@ public class AlphaLogin {
 		return;
 	}
 	
-	public static void bankStyleLogin(AlphanumericPassword p) {
+	public static void bankStyleLogin(Display display, AlphanumericPassword p) {
 		String answer;
 		ArrayList<Integer> digits = new ArrayList<Integer>();
 		Random rand = new Random();
@@ -118,7 +117,6 @@ public class AlphaLogin {
 		System.out.println(answer);
 		System.out.println(digits);
 		
-		Display display = new Display();
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -147,6 +145,7 @@ public class AlphaLogin {
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         gridData.horizontalSpan = 4;
         errorLabel.setLayoutData(gridData);
+        
         
         Label l1 = new Label(shell, SWT.NONE);
         l1.setText(digits.get(0).toString());

@@ -20,7 +20,7 @@ import prototypes.PassTiles.PassTilesRegistration;
 
 public class DigraphRegistration {
 	static int selectionSize = 5;
-	public static void registration(Digraph password) {
+	public static void registration(Display display, Digraph password) {
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>();
@@ -35,7 +35,6 @@ public class DigraphRegistration {
 		}
 //		System.out.println(toDisplay);
 		
-		Display display = new Display();
 		Shell shell = new Shell(display);
 		
 		GridLayout gridLayout = new GridLayout();

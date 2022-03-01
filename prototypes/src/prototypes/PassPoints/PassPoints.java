@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Shell;
 
 public class PassPoints {
 	public static int CAPACITY = 5;
+	public static int BANK_STYLE_SIZE = 3; // number of points used in the bank-style login
 	
 	private int size;
 	private ArrayList<TuplePair> points;

@@ -16,8 +16,7 @@ public class AlphaRegistration {
 	 * @param p AlphanumericPassword class. isSet() can be either true or false. 
 	 * The existing password will be overwritten.
 	 */
-	public static void register(AlphanumericPassword p) {
-		Display display = new Display();
+	public static void register(Display display, AlphanumericPassword p) {
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();

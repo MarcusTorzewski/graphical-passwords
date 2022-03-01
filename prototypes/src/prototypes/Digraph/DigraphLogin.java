@@ -20,7 +20,7 @@ import prototypes.Popup;
 public class DigraphLogin {
 
 	static String input = null;
-	public static void login(Digraph password) {
+	public static void login(Display display, Digraph password) {
 		ArrayList<String> remaining = new ArrayList<String>(Digraph.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
 		remaining.removeAll(toDisplay); // removes users password from remaining (no duplicates)
@@ -68,12 +68,15 @@ public class DigraphLogin {
 			y++;
 		}
 		
+		
+		// in theory this shouldn't be necessary
 		if (aX == -1 || aY == -1 || bX == -1 || bY == -1 ) {
 			System.err.println("ax,ay,bx,by not initialised!");
 			System.out.println(aX);
 			System.out.println(aY);
 			System.out.println(bX);
 			System.out.println(bY);
+			return;
 		}
 		
 //		System.out.println(digraph);
@@ -89,16 +92,13 @@ public class DigraphLogin {
 			System.out.println("here!");
 			answer1X = aX;
 			answer2X = aX;
+			answer1Y = aY + 1;
+			answer2Y = bY + 1;
 			
-			if ((aY + 1) > 4) {
+			if ((answer1Y) > 4) {
 				answer1Y = 0;
-				answer2Y = bY + 1;
-			} else if ((bY + 1) > 4) {
-				answer1Y = 0;
-				answer2Y = aY + 1;
-			} else {
-				answer1Y = aY + 1;
-				answer2Y = bY + 1;
+			} else if ((answer2Y) > 4) {
+				answer2Y = 0;
 			}
 		}
 		
@@ -107,16 +107,13 @@ public class DigraphLogin {
 			System.out.println("there!");
 			answer1Y = aY;
 			answer2Y = aY;
+			answer1X = aX + 1;
+			answer2X = bX + 1;
 			
-			if ((aX + 1) > 4) {
+			if ((answer1X) > 4) {
 				answer1X = 0;
-				answer2X = bX + 1;
-			} else if ((bX + 1) > 4) {
-				answer1X = 0;
-				answer2X = aX + 1;
-			} else {
-				answer1X = aX + 1;
-				answer2X = bX + 1;
+			} else if ((answer2X + 1) > 4) {
+				answer2X = 0;
 			}
 		}
 		
@@ -125,7 +122,6 @@ public class DigraphLogin {
 			System.out.println("down here!");
 			answer1X = aX;
 			answer1Y = bY;
-			
 			answer2X = bX;
 			answer2Y = aY;
 		}
@@ -141,7 +137,6 @@ public class DigraphLogin {
 		
 		// ============== Creating the display ==============
 		
-		Display display = new Display();
 		Shell shell = new Shell(display);
 		
 		GridLayout gridLayout = new GridLayout();
