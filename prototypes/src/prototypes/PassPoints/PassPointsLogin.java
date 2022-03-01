@@ -165,10 +165,10 @@ public class PassPointsLogin {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 	
-//	public static void bankStyleLogin(PassPoints password) {
+//	public static void bankStyleLogin(Display display, PassPoints password) {
 //		if (!password.isSet()) {
 //			return;
 //		}
@@ -209,7 +209,6 @@ public class PassPointsLogin {
 //		
 //		
 //		
-//		Display display = new Display();
 //		Shell shell = new Shell(display);
 //		
 //		GridLayout gridLayout = new GridLayout();
@@ -329,7 +328,7 @@ public class PassPointsLogin {
 //    	}
 //    }
 //    
-//    display.dispose();
+//    return;
 //	}
 	
 }

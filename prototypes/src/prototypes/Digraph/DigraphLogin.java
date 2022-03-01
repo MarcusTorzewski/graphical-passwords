@@ -236,6 +236,6 @@ public class DigraphLogin {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 }

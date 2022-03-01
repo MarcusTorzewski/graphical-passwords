@@ -17,10 +17,9 @@ import prototypes.Popup;
 
 public class PINRegistration {
 	
-	public static void register(PIN p) {
+	public static void register(Display display, PIN p) {
 		ArrayList<Integer> input = new ArrayList<Integer>();
 		
-		Display display = new Display();
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -141,7 +140,6 @@ public class PINRegistration {
  				display.sleep();
  		}
  		
- 		display.dispose();
 		return;
 	}
 

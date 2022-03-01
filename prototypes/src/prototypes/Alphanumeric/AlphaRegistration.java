@@ -95,7 +95,7 @@ public class AlphaRegistration {
  			if (!display.readAndDispatch())
  				display.sleep();
  		}
- 		display.dispose();
+ 		
 		return;
 	}
 }

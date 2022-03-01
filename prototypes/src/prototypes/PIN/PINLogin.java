@@ -17,10 +17,9 @@ import prototypes.Popup;
 
 public class PINLogin {
 	
-	public static void login(PIN p) {
+	public static void login(Display display, PIN p) {
 		ArrayList<Integer> input = new ArrayList<Integer>();
 		
-		Display display = new Display();
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -145,7 +144,6 @@ public class PINLogin {
  				display.sleep();
  		}
  		
- 		display.dispose();
 		return;
 	}
 }

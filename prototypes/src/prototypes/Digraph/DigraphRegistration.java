@@ -129,7 +129,7 @@ public class DigraphRegistration {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 
 }

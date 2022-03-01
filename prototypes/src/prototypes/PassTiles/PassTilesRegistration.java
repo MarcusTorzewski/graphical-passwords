@@ -130,7 +130,7 @@ public class PassTilesRegistration {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 
 }

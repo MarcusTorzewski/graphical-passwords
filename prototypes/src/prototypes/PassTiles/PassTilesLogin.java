@@ -143,10 +143,10 @@ public class PassTilesLogin {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 	
-	public static void loginBankStyle(PassTiles password) {
+	public static void loginBankStyle(Display display, PassTiles password) {
 		int noOfIcons = 3; // in future could be a parameter
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES); // remove users tiles
@@ -178,7 +178,6 @@ public class PassTilesLogin {
 		System.out.println(remaining);
 		System.out.println(toDisplay);
 		
-		Display display = new Display();
 		Shell shell = new Shell(display);
 		
 		GridLayout gridLayout = new GridLayout();
@@ -284,6 +283,6 @@ public class PassTilesLogin {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 }

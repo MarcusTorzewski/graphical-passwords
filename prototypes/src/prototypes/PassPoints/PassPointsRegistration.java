@@ -117,6 +117,6 @@ public class PassPointsRegistration {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 }

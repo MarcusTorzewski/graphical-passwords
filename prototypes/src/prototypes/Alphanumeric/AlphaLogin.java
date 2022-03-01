@@ -91,7 +91,6 @@ public class AlphaLogin {
  				display.sleep();
  		}
  		
- 		display.dispose();
 		return;
 	}
 	
@@ -237,7 +236,6 @@ public class AlphaLogin {
  				display.sleep();
  		}
  		
- 		display.dispose();
 		return;
 	}
 	
