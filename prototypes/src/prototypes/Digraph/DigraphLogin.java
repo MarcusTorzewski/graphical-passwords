@@ -215,7 +215,7 @@ public class DigraphLogin {
         		
         		if (answers.contains(input)) {
         			Popup.loginSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
         		} else {
         			input = null;

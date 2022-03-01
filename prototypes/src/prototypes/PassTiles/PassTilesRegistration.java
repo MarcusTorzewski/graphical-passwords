@@ -111,7 +111,7 @@ public class PassTilesRegistration {
             		Collections.sort(input);
             		password.setTiles(input);
             		Popup.registrationSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
             	} else {
             		input.clear();

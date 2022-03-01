@@ -114,7 +114,7 @@ public class DigraphRegistration {
         		} else {
         			password.setTiles(input);
             		Popup.registrationSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
         		}
         	}

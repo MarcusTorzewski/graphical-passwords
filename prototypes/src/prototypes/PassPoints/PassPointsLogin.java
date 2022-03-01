@@ -144,7 +144,7 @@ public class PassPointsLogin {
             	
             	if (correctCounter == p.getSize()) {
             		Popup.loginSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
             	} else {
             		input.clear();

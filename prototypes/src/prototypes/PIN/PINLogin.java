@@ -103,7 +103,7 @@ public class PINLogin {
 //            		shell.pack();
             	} else if (p.getPassword().equals(input)) {
 					Popup.loginSuccess(display);
-					display.dispose();
+					shell.dispose();
             	} else {
             		errorLabel.setText("Incorrect! Please try again.");
             		p1.setText("");

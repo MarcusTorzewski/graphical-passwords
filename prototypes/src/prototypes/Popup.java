@@ -57,7 +57,7 @@ public class Popup {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 
 	public static void registrationSuccess(Display display) {
@@ -88,7 +88,7 @@ public class Popup {
 		confirmButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				display.dispose();
+				shell.dispose();
 				return;
 			}
 		});
@@ -103,7 +103,7 @@ public class Popup {
         	}
         }
         
-        display.dispose();
+       	return;
 	}
 	
 	public static void passwordNotSet(Display display, int p) {
@@ -150,7 +150,7 @@ public class Popup {
 		confirmButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				display.dispose();
+				shell.dispose();
 				return;
 			}
 		});
@@ -165,6 +165,6 @@ public class Popup {
         	}
         }
         
-        display.dispose();
+        return;
 	}
 }

@@ -122,7 +122,7 @@ public class PassTilesLogin {
             	Collections.sort(input);
             	if (password.getTiles().equals(input)){
             		Popup.loginSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
             	} else {
             		input.clear();
@@ -262,7 +262,7 @@ public class PassTilesLogin {
             	Collections.sort(input);
             	if (password.getTiles().equals(input)){
             		Popup.loginSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
             	} else {
             		input.clear();

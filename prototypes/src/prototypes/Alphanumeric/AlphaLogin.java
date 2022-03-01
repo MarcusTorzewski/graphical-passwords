@@ -73,7 +73,7 @@ public class AlphaLogin {
                 input = password.getText();
                 if (p.checkMatch(input)) {
                 	Popup.loginSuccess(display);
-                	display.dispose();
+                	shell.dispose();
                 } else {
                 	errorLabel.setText("Incorrect! Please try again.");
                 	password.setText("");
@@ -214,7 +214,7 @@ public class AlphaLogin {
             	
             	if (input.equals(answer)) {
             		Popup.loginSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             	} else {
             		errorLabel.setText("Incorrect.");
             		p1.setText("");

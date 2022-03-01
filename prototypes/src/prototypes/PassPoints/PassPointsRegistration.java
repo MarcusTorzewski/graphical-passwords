@@ -98,7 +98,7 @@ public class PassPointsRegistration {
             		password.setImageCode(0);
             		password.setPoints(input);
             		Popup.registrationSuccess(display);
-            		display.dispose();
+            		shell.dispose();
             		return;
             	} else {
             		input.clear();

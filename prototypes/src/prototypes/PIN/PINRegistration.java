@@ -106,7 +106,7 @@ public class PINRegistration {
             	} else {
             		p.setPassword(input);
 					Popup.registrationSuccess(display);
-					display.dispose();
+					shell.dispose();
             	}
             }
         });

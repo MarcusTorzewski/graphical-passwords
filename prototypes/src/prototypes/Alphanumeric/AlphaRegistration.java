@@ -72,7 +72,7 @@ public class AlphaRegistration {
             	if ((password.getText().length() > 5) && (password.getText().equals(passwordCheck.getText()))) {
 					p.setPassword(password.getText());
 					Popup.registrationSuccess(display);
-					display.dispose();
+					shell.dispose();
             	} else if (!(password.getText().length() > 5)) {
             		errorLabel.setText("Your password must be over 5 characters long.");
             		password.setText("");
