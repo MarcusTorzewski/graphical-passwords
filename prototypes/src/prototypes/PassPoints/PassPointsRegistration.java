@@ -19,7 +19,7 @@ import prototypes.Popup;
 
 public class PassPointsRegistration {
 	
-	public static void registration(Display display, PassPoints password) {
+	public static void register(Display display, PassPoints password) {
 		ArrayList<TuplePair> input = new ArrayList<TuplePair>();
 		
 		Shell shell = new Shell(display);

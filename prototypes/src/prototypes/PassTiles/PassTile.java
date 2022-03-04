@@ -3,7 +3,7 @@ package prototypes.PassTiles;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PassTiles {
+public class PassTile {
 	public static int CAPACITY = 5;
 	public static int GRID_SIZE = 25;
 	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("phone",
@@ -19,7 +19,7 @@ public class PassTiles {
 	private ArrayList<String> tiles;
 	private boolean isSet;
 	
-	public PassTiles() {
+	public PassTile() {
 		this.size = 0;
 		this.tiles = null;
 		this.isSet = false;

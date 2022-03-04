@@ -14,17 +14,17 @@ import org.eclipse.swt.widgets.*;
 
 import prototypes.Popup;
 
-public class PassTilesRegistration {
+public class PassTileRegistration {
 	
-	public static void registration(Display display, PassTiles password) {
+	public static void register(Display display, PassTile password) {
 		ArrayList<String> input = new ArrayList<String>();
-		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES);
+		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>();
 		Random r = new Random();
 		
 		// toDisplay is populated randomly with GRID_SIZE strings from remaining
 		// toDisplay is then used to populate the GUI
-		for (int i = 0; i < PassTiles.GRID_SIZE; i++) {
+		for (int i = 0; i < PassTile.GRID_SIZE; i++) {
 			int n = r.nextInt(remaining.size() - 1);
 			toDisplay.add(remaining.get(n));
 			remaining.remove(n);
@@ -47,7 +47,7 @@ public class PassTilesRegistration {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Double-click on " + PassTiles.CAPACITY + "  image:");
+ 		infoLabel.setText("Double-click on " + PassTile.CAPACITY + "  image:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);
@@ -70,7 +70,7 @@ public class PassTilesRegistration {
         // array of buttons are procedurally generated        
         ArrayList<Button> tiles = new ArrayList<Button>();
         
-        for (int i = 0; i < PassTiles.GRID_SIZE; i++) {
+        for (int i = 0; i < PassTile.GRID_SIZE; i++) {
         	tiles.add(new Button(shell, SWT.NONE));
         	Button tile = tiles.get(i);
         	gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
@@ -79,7 +79,7 @@ public class PassTilesRegistration {
         	// setting the image
         	String value = toDisplay.get(i);
         	System.out.println(value);
-        	Image image = new Image(display, PassTilesRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	
         	tile.addSelectionListener(new SelectionAdapter() {
@@ -91,8 +91,8 @@ public class PassTilesRegistration {
     					return;
         			}
         			
-        			if (input.size() == PassTiles.CAPACITY) {
-    					errorLabel.setText("You've already picked " + PassTiles.CAPACITY + " points!");
+        			if (input.size() == PassTile.CAPACITY) {
+    					errorLabel.setText("You've already picked " + PassTile.CAPACITY + " points!");
     					shell.pack();
     					return;
         			}
@@ -107,7 +107,7 @@ public class PassTilesRegistration {
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
             public void widgetSelected(SelectionEvent e) {
-            	if (input.size() == PassTiles.CAPACITY) {
+            	if (input.size() == PassTile.CAPACITY) {
             		Collections.sort(input);
             		password.setTiles(input);
             		Popup.registrationSuccess(display);
@@ -115,7 +115,7 @@ public class PassTilesRegistration {
             		return;
             	} else {
             		input.clear();
-            		errorLabel.setText("Your password must be " + PassTiles.CAPACITY + " points long. You're password so far has been deleted :)");
+            		errorLabel.setText("Your password must be " + PassTile.CAPACITY + " points long. You're password so far has been deleted :)");
             	}
             }  
         });

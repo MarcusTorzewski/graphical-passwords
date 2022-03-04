@@ -21,6 +21,7 @@ public class Digraph {
 	public Digraph() {
 		tileA = null;
 		tileB = null;
+		isSet = false;
 	}
 	
 	public String getTileA() {

@@ -15,14 +15,14 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
-import prototypes.PassTiles.PassTiles;
-import prototypes.PassTiles.PassTilesRegistration;
+import prototypes.PassTiles.PassTile;
+import prototypes.PassTiles.PassTileRegistration;
 
 public class DigraphRegistration {
 	static int selectionSize = 5;
-	public static void registration(Display display, Digraph password) {
+	public static void register(Display display, Digraph password) {
 		ArrayList<String> input = new ArrayList<String>();
-		ArrayList<String> remaining = new ArrayList<String>(PassTiles.ALL_TILES);
+		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>();
 		Random r = new Random();
 		
@@ -81,7 +81,7 @@ public class DigraphRegistration {
         	// setting the image
         	String value = toDisplay.get(i);
 //        	System.out.println(value);
-        	Image image = new Image(display, PassTilesRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	
         	tile.addSelectionListener(new SelectionAdapter() {
