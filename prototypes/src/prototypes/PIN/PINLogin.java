@@ -11,9 +11,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -21,7 +19,12 @@ import prototypes.Popup;
 
 public class PINLogin {
 	
-	public static void login(Display display, PIN p) {
+	public static void login(Display display, PIN password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 4);
+			return;
+		}
+		
 		ArrayList<Integer> input = new ArrayList<Integer>();
 		
  		Shell shell = new Shell(display);
@@ -104,7 +107,7 @@ public class PINLogin {
 //            		p3.setText("");
 //            		p4.setText("");
 //            		shell.pack();
-            	} else if (p.getPassword().equals(input)) {
+            	} else if (password.getPassword().equals(input)) {
 					Popup.loginSuccess(display);
 					shell.dispose();
             	} else {

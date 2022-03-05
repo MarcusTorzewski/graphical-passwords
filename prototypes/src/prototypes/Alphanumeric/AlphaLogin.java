@@ -22,10 +22,15 @@ public class AlphaLogin {
 	/**
 	 * Standard alphanumeric login. User enters their password and it is checked against the actual password. 
 	 * If it is incorrect the user tries again. 
-	 * @param p AlphanumericPassword class set at registration. If the password has not yet
+	 * @param password AlphanumericPassword class set at registration - if the password has not yet
 	 * been set the user will receive a pop-up saying as such.
 	 */
-	public static void login(Display display, AlphanumericPassword p) {
+	public static void login(Display display, AlphanumericPassword password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 0);
+			return;
+		}
+		
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -48,11 +53,11 @@ public class AlphaLogin {
         infoLabel.setLayoutData(gridData);
         
  		
- 		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		password.setText("");
- 		password.setTextLimit(10);
+ 		Text passwordLabel = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+ 		passwordLabel.setText("");
+ 		passwordLabel.setTextLimit(10);
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		password.setLayoutData(gridData);
+ 		passwordLabel.setLayoutData(gridData);
  		
 
  		Button confirmButton = new Button(shell, SWT.PUSH);
@@ -70,13 +75,13 @@ public class AlphaLogin {
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                input = password.getText();
-                if (p.checkMatch(input)) {
+                input = passwordLabel.getText();
+                if (password.checkMatch(input)) {
                 	Popup.loginSuccess(display);
                 	shell.dispose();
                 } else {
                 	errorLabel.setText("Incorrect! Please try again.");
-                	password.setText("");
+                	passwordLabel.setText("");
                 	shell.pack();
                 }
             }

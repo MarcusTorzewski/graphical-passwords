@@ -122,11 +122,7 @@ public class Homepage {
  		alphaLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
- 					Popup.passwordNotSet(display, 0);
- 				} else {
- 					AlphaLogin.login(display, ap);
- 				}
+ 				AlphaLogin.login(display, ap);
  			}
  		});
  		
@@ -140,11 +136,7 @@ public class Homepage {
  		alphaBankLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
- 					Popup.passwordNotSet(display, 0);
- 				} else {
-// 					AlphaLogin.bankStyleLogin(display, ap);
- 				}
+// 				AlphaLogin.bankStyleLogin(display, ap);
  			}
  		});
  		
@@ -158,11 +150,7 @@ public class Homepage {
  		pinLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!pin.isSet()) {
- 					Popup.passwordNotSet(display, 4);
- 				} else {
- 					PINLogin.login(display, pin);
- 				}
+ 				PINLogin.login(display, pin);
  			}
  		});
  		
@@ -268,11 +256,7 @@ public class Homepage {
  		passPointsLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!pp.isSet()) {
- 					Popup.passwordNotSet(display, 1);
- 				} else {
- 					PassPointsLogin.login(display, pp);
- 				}
+ 				PassPointsLogin.login(display, pp);
  			}
  		});
  		
@@ -286,11 +270,7 @@ public class Homepage {
  		passPointsHybridLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!hpp.isSet()) {
- 					Popup.passwordNotSet(display, 5);
- 				} else {
- 					return;
- 				}
+ 				return;
  			}
  		});
  		
@@ -304,11 +284,7 @@ public class Homepage {
  		passTileLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!pt.isSet()) {
- 					Popup.passwordNotSet(display, 2);
- 				} else {
- 					PassTileLogin.login(display, pt);
- 				}
+ 				PassTileLogin.login(display, pt);
  			}
  		});
  		
@@ -322,11 +298,7 @@ public class Homepage {
  		passTileBankLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!pt.isSet()) {
- 					Popup.passwordNotSet(display, 2);
- 				} else {
 // 					PassTileLogin.loginBankStyle(display, pt);
- 				}
  			}
  		});
  		
@@ -393,11 +365,7 @@ public class Homepage {
  		digraphLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!dp.isSet()) {
- 					Popup.passwordNotSet(display, 3);
- 				} else {
- 					DigraphLogin.login(display, dp);
- 				}
+ 				DigraphLogin.login(display, dp);
  			}
  		});
  		

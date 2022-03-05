@@ -165,7 +165,8 @@ public class Popup {
 						+ "Login - to log in select the same five points in the order you originally chose them.\n\n"
 						+ "Hybrid - the hybrid variant is almost exactly the same from the users perspective. The only difference is that\n"
 						+ "the image will actually be two images superimposed on each other.\n"
-						+ "You should choose five points based on the harder to see image.");
+						+ "You should choose five points based on the harder to see image.\n\n"
+						+ "To clear your password simply register again.");
 				break;
 			case 2:
 				// PassTile
@@ -177,7 +178,8 @@ public class Popup {
 						+ "Login - to log in select the same five tiles in any order. The tiles may not appear in the same\n"
 						+ "location as they did at registration.\n\n"
 						+ "Bank-Style - to log in select the amount of icons from your password indicated at the top (e.g. select 3).\n"
-						+ "There will only be that amount of your password present in the selection shown.");
+						+ "There will only be that amount of your password present in the selection shown.\n\n"
+						+ "To clear your password simply register again.");
 				break;
 			case 3:
 				// Digraph
@@ -194,7 +196,8 @@ public class Popup {
 						+ "Do not share a row or column - if the two key images do not share a column, select either of the two images\n"
 						+ "which form a rectangle with the key images.\n\n"
 						+ "In the first two instances (same row or column), it is possible for a key image to also be a pass image if it occurrs\n"
-						+ "directly after the other key image.");
+						+ "directly after the other key image.\n\n"
+						+ "To clear your password simply register again.");
 				break;
 			case 4:
 				// PIN
@@ -202,7 +205,8 @@ public class Popup {
 				infoLabel.setText("A PIN is a 4-digit code most often used in bank card transactions.\n"
 						+ "There are no rules for this methodology other than that numbers are required.\n\n"
 						+ "Registration - to register simply input four digits.\n\n"
-						+ "Login - to log in simply re-type the same four digits you registered with in order.");
+						+ "Login - to log in simply re-type the same four digits you registered with in order.\n\n"
+						+ "To clear your password simply register again.");
 				break;
 			case 0:
 				// alphanumeric
@@ -214,7 +218,8 @@ public class Popup {
 						+ "Login - to log in simply re-type the same password you registered with.\n\n"
 						+ "Bank-Style Login - to log in type in the characters coresponding to the numbers it requests.\n"
 						+ "For example: if the password is 'Password', and it asks for the 1st, 3rd, 4th, and 6th \n"
-						+ "characters, you would enter 'P', 's', 'w', and 'r'.");
+						+ "characters, you would enter 'P', 's', 'w', and 'r'.\n\n"
+						+ "To clear your password simply register again.");
 				break;
 			default:
 				System.err.println("error");
@@ -322,4 +327,5 @@ public class Popup {
         
         return;
 	}
+
 }

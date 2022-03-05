@@ -21,6 +21,11 @@ public class DigraphLogin {
 
 	static String input = null;
 	public static void login(Display display, Digraph password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 3);
+			return;
+		}
+		
 		ArrayList<String> remaining = new ArrayList<String>(Digraph.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
 		remaining.removeAll(toDisplay); // removes users password from remaining (no duplicates)

@@ -20,6 +20,11 @@ import prototypes.Popup;
 public class PassTileLogin {
 	
 	public static void login(Display display, PassTile password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 2);
+			return;
+		}
+		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
