@@ -13,10 +13,10 @@ public class AlphaRegistration {
 	/**
 	 * Standard alphanumeric password registration. User enters a password. It is checked against the conditions.
 	 * If the password satisfies the conditions it is accepted and the password is set. If not the user tries again.
-	 * @param p AlphanumericPassword class. isSet() can be either true or false. 
+	 * @param password AlphanumericPassword class. isSet() can be either true or false. 
 	 * The existing password will be overwritten.
 	 */
-	public static void register(Display display, AlphanumericPassword p) {
+	public static void register(Display display, AlphanumericPassword password) {
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -45,18 +45,18 @@ public class AlphaRegistration {
         errorLabel.setLayoutData(gridData);
         
  		
- 		Text password = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		password.setText("");
- 		password.setTextLimit(10);
+ 		Text passwordLabel = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+ 		passwordLabel.setText("");
+ 		passwordLabel.setTextLimit(10);
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		password.setLayoutData(gridData);
+ 		passwordLabel.setLayoutData(gridData);
  		
  		
- 		Text passwordCheck = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		passwordCheck.setText("");
- 		passwordCheck.setTextLimit(10);
+ 		Text passwordCheckLabel = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+ 		passwordCheckLabel.setText("");
+ 		passwordCheckLabel.setTextLimit(10);
  		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		passwordCheck.setLayoutData(gridData);
+ 		passwordCheckLabel.setLayoutData(gridData);
  		
 
  		Button confirmButton = new Button(shell, SWT.PUSH);
@@ -68,23 +68,30 @@ public class AlphaRegistration {
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-//            	System.out.println(password.getText() == passwordCheck.getText());
-            	if ((password.getText().length() > 5) && (password.getText().equals(passwordCheck.getText()))) {
-					p.setPassword(password.getText());
+            	if ((passwordLabel.getText().length() > 5) && (passwordLabel.getText().equals(passwordCheckLabel.getText()))) {
+					password.setPassword(passwordLabel.getText());
 					Popup.registrationSuccess(display);
 					shell.dispose();
-            	} else if (!(password.getText().length() > 5)) {
+            	} else if (!(passwordLabel.getText().length() > 5)) {
             		errorLabel.setText("Your password must be over 5 characters long.");
-            		password.setText("");
-            		passwordCheck.setText("");
+            		passwordLabel.setText("");
+            		passwordCheckLabel.setText("");
             		shell.pack();
             	} else {
             		errorLabel.setText("Your password does not match.");
-            		password.setText("");
-            		passwordCheck.setText("");
+            		passwordLabel.setText("");
+            		passwordCheckLabel.setText("");
             		shell.pack();
             	}
             }
+        });
+        
+        confirmButton.addKeyListener(new KeyAdapter() {
+        	public void keyPressed(KeyEvent e) {
+        		if (e.keyCode == SWT.CR) {
+        			confirmButton.setSelection(true);
+        		}
+        	}
         });
         
  		

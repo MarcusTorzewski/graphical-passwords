@@ -99,27 +99,40 @@ public class AlphaLogin {
 		return;
 	}
 	
-	public static void bankStyleLogin(Display display, AlphanumericPassword p) {
-		String answer;
+	
+	public static void bankStyleLogin(Display display, AlphanumericPassword password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 0);
+			return;
+		}
+		
+		
+		// ============== Generating an answer ==============
+		
+		String answer = "";  // Seeing as we don't need to look at letters individually String is fine
 		ArrayList<Integer> digits = new ArrayList<Integer>();
 		Random rand = new Random();
 		
-		for (int i = 0; i < 4; i++) {
-			int x = rand.nextInt(p.getPassword().length());
-			if (!digits.contains(x)) {
-				digits.add(x);
-			} else {
-				i--;
-			}
+		// Populates the digits array with every digit...
+		for (int i = 0; i < password.getPassword().length(); i++) {
+			digits.add(i);
 		}
 		
-		digits.sort(null);
+		// ...then pops random numbers from the digits array until it is the size of BANK_STYLE_ARRAY
+		while(digits.size() > AlphanumericPassword.BANK_STYLE_SIZE) {
+			int x = rand.nextInt(digits.size());
+			digits.remove(x);
+		}		
 		
-		answer = "" + p.getPassword().charAt(digits.get(0)) + p.getPassword().charAt(digits.get(1)) 
-				+ p.getPassword().charAt(digits.get(2)) + p.getPassword().charAt(digits.get(3));
+		for (int i = 0; i < digits.size(); i++) {
+			answer += password.getPassword().charAt(digits.get(i));
+		}
 		
-		System.out.println(answer);
 		System.out.println(digits);
+		System.out.println(answer);
+		
+		
+		// ============== Creating the display ==============
 		
  		Shell shell = new Shell(display);
  		
@@ -151,86 +164,67 @@ public class AlphaLogin {
         errorLabel.setLayoutData(gridData);
         
         
-        Label l1 = new Label(shell, SWT.NONE);
-        l1.setText(digits.get(0).toString());
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        l1.setLayoutData(gridData);
+        ArrayList<Label> labels = new ArrayList<Label>();
+        
+        for (int i = 0; i < AlphanumericPassword.BANK_STYLE_SIZE; i ++) {
+        	labels.add(new Label(shell, SWT.NONE));
+        	Label label = labels.get(i);
+        	gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	label.setLayoutData(gridData);
+        	
+        	label.setText(Integer.toString(digits.get(i) + 1));
+        }
         
         
-        Label l2 = new Label(shell, SWT.NONE);
-        l2.setText(digits.get(1).toString());
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        l2.setLayoutData(gridData);
+        ArrayList<Text> textBoxes = new ArrayList<Text>();
         
+        for (int i = 0; i < AlphanumericPassword.BANK_STYLE_SIZE; i ++) {
+        	textBoxes.add(new Text(shell, SWT.BORDER | SWT.PASSWORD));
+        	Text textBox = textBoxes.get(i);
+        	textBox.setText("");
+        	textBox.setTextLimit(1);
+        	gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        	textBox.setLayoutData(gridData);
+        }
         
-        Label l3 = new Label(shell, SWT.NONE);
-        l3.setText(digits.get(2).toString());
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        l3.setLayoutData(gridData);
-        
-        
-        Label l4 = new Label(shell, SWT.NONE);
-        l4.setText(digits.get(3).toString());
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        l4.setLayoutData(gridData);
-        
-        
-        Text p1 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p1.setText("");
- 		p1.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p1.setLayoutData(gridData);
- 		
- 		
- 		Text p2 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p2.setText("");
- 		p2.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p2.setLayoutData(gridData);
- 		
- 		
- 		Text p3 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p3.setText("");
- 		p3.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p3.setLayoutData(gridData);
- 		
- 		
- 		Text p4 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p4.setText("");
- 		p4.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p4.setLayoutData(gridData);
- 		
- 		
+ 
  		Button confirmButton = new Button(shell, SWT.PUSH);
         confirmButton.setText("Confirm");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         gridData.horizontalSpan = 4;
         confirmButton.setLayoutData(gridData);
- 		
- 		
         
+        String a = answer;  // this is a hack. i do not like it
+
         confirmButton.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-            	String input = p1.getText() + p2.getText() + p3.getText() + p4.getText();
-            	System.out.println(input);
-            	
-            	if (input.equals(answer)) {
-            		Popup.loginSuccess(display);
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		for (int i = 0; i < AlphanumericPassword.BANK_STYLE_SIZE; i ++) {
+        			Text textBox = textBoxes.get(i);
+        			if (textBox.getText().isEmpty()) {
+        				errorLabel.setText("You have not inputted every character requested.");
+        				emptyTextBoxes(textBoxes);
+        				
+        				shell.pack();
+        				return;
+        			} else {
+        				input += textBox.getText();
+        			}
+        		}
+        		
+        		if (a.equals(input)) {
+        			Popup.loginSuccess(display);
             		shell.dispose();
-            	} else {
-            		errorLabel.setText("Incorrect.");
-            		p1.setText("");
-            		p2.setText("");
-            		p3.setText("");
-            		p4.setText("");
-            		shell.pack();
-            	}
-            }
+            		return;
+        		} else {
+        			errorLabel.setText("The password is not correct.");
+    				emptyTextBoxes(textBoxes);
+    				
+    				shell.pack();
+    				return;
+        		}
+        	}
         });
-        
 
  		
         shell.pack();
@@ -242,6 +236,14 @@ public class AlphaLogin {
  		}
  		
 		return;
+	}
+	
+	
+	public static void emptyTextBoxes(ArrayList<Text> textBoxes) {
+		for (int i = 0; i < textBoxes.size(); i++) {
+			Text textBox = textBoxes.get(i);
+			textBox.setText("");
+		}
 	}
 	
 }
