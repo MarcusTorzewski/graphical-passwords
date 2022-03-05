@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -84,7 +88,6 @@ public class PINLogin {
         gridData.horizontalSpan = 4;
         confirmButton.setLayoutData(gridData);
  		
- 		
         
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -116,24 +119,27 @@ public class PINLogin {
         });
         
         
-        
-        
         // for only allowing digits
-// 		text.addListener(SWT.Verify, new Listener() {
-// 		      public void handleEvent(Event e) {
-// 		        String string = e.text;
-// 		        char[] chars = new char[string.length()];
-// 		        string.getChars(0, chars.length, chars, 0);
-// 		        for (int i = 0; i < chars.length; i++) {
-// 		          if (!('0' <= chars[i] && chars[i] <= '9')) {
-// 		            e.doit = false;
-// 		            return;
-// 		          }
-// 		        }
-// 		      }
-// 		    });
+        VerifyListener listener = new VerifyListener() {
+        	@Override
+        	public void verifyText(VerifyEvent e ) {
+        		String string = e.text;
+        		char[] chars = new char[string.length()];
+        		if (chars.length < 1) {
+        			return;
+        		}
+        		string.getChars(0, chars.length, chars, 0);
+        		if (!('0' <= chars[0] && chars[0] <= '9')) {
+        			e.doit = false;
+        			return;
+        		}
+        	}
+        };
         
-        
+ 		p1.addVerifyListener(listener);
+ 		p2.addVerifyListener(listener);
+ 		p3.addVerifyListener(listener);
+ 		p4.addVerifyListener(listener);
 
  		
         shell.pack();
@@ -146,4 +152,8 @@ public class PINLogin {
  		
 		return;
 	}
+	    
+	
+
 }
+

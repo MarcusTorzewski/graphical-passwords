@@ -11,7 +11,7 @@ public class PIN {
 	}
 	public void setPassword(ArrayList<Integer> password) {
 		this.password = password;
-		isSet = true;
+		this.isSet = true;
 	}
 	public boolean isSet() {
 		return isSet;

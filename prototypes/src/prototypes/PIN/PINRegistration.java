@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -112,7 +114,27 @@ public class PINRegistration {
         });
         
         
+        // for only allowing digits
+        VerifyListener listener = new VerifyListener() {
+        	@Override
+        	public void verifyText(VerifyEvent e ) {
+        		String string = e.text;
+        		char[] chars = new char[string.length()];
+        		if (chars.length < 1) {
+        			return;
+        		}
+        		string.getChars(0, chars.length, chars, 0);
+        		if (!('0' <= chars[0] && chars[0] <= '9')) {
+        			e.doit = false;
+        			return;
+        		}
+        	}
+        };
         
+ 		p1.addVerifyListener(listener);
+ 		p2.addVerifyListener(listener);
+ 		p3.addVerifyListener(listener);
+ 		p4.addVerifyListener(listener);
         
         // for only allowing digits
 // 		text.addListener(SWT.Verify, new Listener() {

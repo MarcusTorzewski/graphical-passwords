@@ -32,6 +32,7 @@ public class Homepage {
 		AlphanumericPassword ap = new AlphanumericPassword();
 		PIN pin = new PIN();
 		PassPoints pp = new PassPoints();
+		PassPoints hpp = new PassPoints();
 		PassTile pt = new PassTile();
 		Digraph dp = new Digraph();
 		
@@ -157,7 +158,7 @@ public class Homepage {
  		pinLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!pin.isSet()) {
  					Popup.passwordNotSet(display, 4);
  				} else {
  					PINLogin.login(display, pin);
@@ -267,7 +268,7 @@ public class Homepage {
  		passPointsLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!pp.isSet()) {
  					Popup.passwordNotSet(display, 1);
  				} else {
  					PassPointsLogin.login(display, pp);
@@ -285,7 +286,7 @@ public class Homepage {
  		passPointsHybridLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!hpp.isSet()) {
  					Popup.passwordNotSet(display, 5);
  				} else {
  					return;
@@ -303,7 +304,7 @@ public class Homepage {
  		passTileLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!pt.isSet()) {
  					Popup.passwordNotSet(display, 2);
  				} else {
  					PassTileLogin.login(display, pt);
@@ -321,7 +322,7 @@ public class Homepage {
  		passTileBankLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!pt.isSet()) {
  					Popup.passwordNotSet(display, 2);
  				} else {
 // 					PassTileLogin.loginBankStyle(display, pt);
@@ -392,7 +393,7 @@ public class Homepage {
  		digraphLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				if (!ap.isSet()) {
+ 				if (!dp.isSet()) {
  					Popup.passwordNotSet(display, 3);
  				} else {
  					DigraphLogin.login(display, dp);
