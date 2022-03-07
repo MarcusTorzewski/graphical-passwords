@@ -22,7 +22,7 @@ public class AlphaLogin {
 	/**
 	 * Standard alphanumeric login. User enters their password and it is checked against the actual password. 
 	 * If it is incorrect the user tries again. 
-	 * @param password AlphanumericPassword class set at registration - if the password has not yet
+	 * @param password alphanumeric password set at registration - if the password has not yet
 	 * been set the user will receive a pop-up saying as such.
 	 */
 	public static void login(Display display, AlphanumericPassword password) {
@@ -30,8 +30,11 @@ public class AlphaLogin {
 			Popup.passwordNotSet(display, 0);
 			return;
 		}
+
+		// ============== Creating the display ==============
 		
  		Shell shell = new Shell(display);
+ 		shell.setText("Alphanumeric Login");
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 1;
@@ -135,6 +138,7 @@ public class AlphaLogin {
 		// ============== Creating the display ==============
 		
  		Shell shell = new Shell(display);
+ 		shell.setText("Alphanumeric Bank-Style Login");
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 4;
@@ -223,6 +227,18 @@ public class AlphaLogin {
     				shell.pack();
     				return;
         		}
+        	}
+        });
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        cancelButton.setLayoutData(gridData);
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
         	}
         });
 

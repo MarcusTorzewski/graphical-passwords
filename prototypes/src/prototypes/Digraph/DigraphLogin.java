@@ -25,6 +25,10 @@ public class DigraphLogin {
 			Popup.passwordNotSet(display, 3);
 			return;
 		}
+		input = null;
+		
+		
+		// ============== Generating Images to Display ==============
 		
 		ArrayList<String> remaining = new ArrayList<String>(Digraph.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
@@ -143,6 +147,7 @@ public class DigraphLogin {
 		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
+ 		shell.setText("Digraph Login");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
@@ -207,6 +212,34 @@ public class DigraphLogin {
         		}
         	});
         }
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
+        new Label(shell, SWT.NONE).setText("");  // spacer
+        
+        
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		DigraphLogin.input = null;
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
         
         
         confirmButton.addSelectionListener(new SelectionAdapter() {

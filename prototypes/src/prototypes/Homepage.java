@@ -36,8 +36,10 @@ public class Homepage {
 		PassTile pt = new PassTile();
 		Digraph dp = new Digraph();
 		
+		
 		Display display = new Display();
 		Shell shell = new Shell(display);
+		shell.setText("Graphical Passwords");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
@@ -136,7 +138,7 @@ public class Homepage {
  		alphaBankLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
-// 				AlphaLogin.bankStyleLogin(display, ap);
+ 				AlphaLogin.bankStyleLogin(display, ap);
  			}
  		});
  		
@@ -298,7 +300,7 @@ public class Homepage {
  		passTileBankLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
-// 					PassTileLogin.loginBankStyle(display, pt);
+ 				PassTileLogin.loginBankStyle(display, pt);
  			}
  		});
  		

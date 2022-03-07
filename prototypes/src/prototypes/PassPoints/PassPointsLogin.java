@@ -1,8 +1,6 @@
 package prototypes.PassPoints;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -38,9 +36,10 @@ public class PassPointsLogin {
 		String imageFilePath = "./Images/PassPointsImage" + password.getImageCode() + ".jpg";
 		
 		Shell shell = new Shell(display);
+ 		shell.setText("PassPoints Login");
 		
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
+		gridLayout.numColumns = 4;
  		gridLayout.marginLeft = 5;
  		gridLayout.marginRight = 5;
  		gridLayout.marginTop = 5;
@@ -53,7 +52,20 @@ public class PassPointsLogin {
 		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Double-click on " + PassPoints.CAPACITY + "  points in this image:");
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+        gridData.horizontalSpan = 2;
         infoLabel.setLayoutData(gridData);
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
         
         
         Button confirmButton = new Button(shell, SWT.PUSH);
@@ -66,13 +78,27 @@ public class PassPointsLogin {
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+        gridData.horizontalSpan = 2;
         errorLabel.setLayoutData(gridData);
+        
+
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		input.clear();
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
         
         
         Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream(imageFilePath));
         Label photo = new Label (shell, SWT.BORDER);
         gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
-        gridData.horizontalSpan = 2;
+        gridData.horizontalSpan = 4;
         photo.setLayoutData(gridData);
         photo.setImage(image);
 

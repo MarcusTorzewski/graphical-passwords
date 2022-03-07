@@ -31,6 +31,7 @@ public class PINLogin {
 		// ============== Creating the display ==============
 		
  		Shell shell = new Shell(display);
+ 		shell.setText("PIN Login");
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 4;
@@ -88,14 +89,26 @@ public class PINLogin {
      		textBox.setLayoutData(gridData);
      		textBox.addVerifyListener(digitsOnlyListener);
         }
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        gridData.horizontalSpan = 2;
+        cancelButton.setLayoutData(gridData);
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
  		
  		
  		Button confirmButton = new Button(shell, SWT.PUSH);
         confirmButton.setText("Confirm");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        gridData.horizontalSpan = 4;
+        gridData.horizontalSpan = 2;
         confirmButton.setLayoutData(gridData);
- 		
         
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override

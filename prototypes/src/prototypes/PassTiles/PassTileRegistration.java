@@ -17,6 +17,9 @@ import prototypes.Popup;
 public class PassTileRegistration {
 	
 	public static void register(Display display, PassTile password) {
+		
+		// ============== Generating the tiles ==============
+		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>();
@@ -33,7 +36,11 @@ public class PassTileRegistration {
 		System.out.println(remaining);
 		System.out.println(toDisplay);
 		
+		
+		// ============== Creating the display ==============
+		
 		Shell shell = new Shell(display);
+ 		shell.setText("PassTile Registration");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
@@ -66,6 +73,7 @@ public class PassTileRegistration {
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
         gridData.horizontalSpan = 3;
         errorLabel.setLayoutData(gridData);
+        
         
         // array of buttons are procedurally generated        
         ArrayList<Button> tiles = new ArrayList<Button>();
@@ -102,6 +110,34 @@ public class PassTileRegistration {
         		}
         	});
         }
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
+        new Label(shell, SWT.NONE).setText("");  // spacer
+        
+        
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		input.clear();
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
         
 
         confirmButton.addSelectionListener(new SelectionAdapter() {

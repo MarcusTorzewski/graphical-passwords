@@ -3,6 +3,8 @@ package prototypes.PassPoints;
 import java.util.ArrayList;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -19,13 +21,24 @@ import prototypes.Popup;
 
 public class PassPointsRegistration {
 	
+	/**
+	 * The standard registration method for PassPoints. User selects five points on
+	 * a randomly selected image, order is preserved in the password. There is a 
+	 * lee-way for the points; selection won't need to be pixel-perfect in the login.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password PassPoints password isSet() can be either true or false. 
+	 * The existing password will be overwritten.
+	 */
 	public static void register(Display display, PassPoints password) {
 		ArrayList<TuplePair> input = new ArrayList<TuplePair>();
+		String imageFilePath = "./Images/PassPointsImage0.jpg";
 		
 		Shell shell = new Shell(display);
+ 		shell.setText("PassPoints Registration");
 		
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
+		gridLayout.numColumns = 4;
  		gridLayout.marginLeft = 5;
  		gridLayout.marginRight = 5;
  		gridLayout.marginTop = 5;
@@ -38,7 +51,20 @@ public class PassPointsRegistration {
 		Label infoLabel = new Label(shell, SWT.NONE);
         infoLabel.setText("Double-click on " + PassPoints.CAPACITY + "  points in this image:");
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+        gridData.horizontalSpan = 2;
         infoLabel.setLayoutData(gridData);
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
         
         
         Button confirmButton = new Button(shell, SWT.PUSH);
@@ -51,13 +77,27 @@ public class PassPointsRegistration {
         Label errorLabel = new Label(shell, SWT.NONE);
         errorLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+        gridData.horizontalSpan = 2;
         errorLabel.setLayoutData(gridData);
         
         
-        Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream("./Images/PassPointsImage0.jpg"));
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		input.clear();
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
+        
+        
+        Image image = new Image(display, PassPointsRegistration.class.getResourceAsStream(imageFilePath));
         Label photo = new Label (shell, SWT.BORDER);
         gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
-        gridData.horizontalSpan = 2;
+        gridData.horizontalSpan = 4;
         photo.setLayoutData(gridData);
         photo.setImage(image);
 
@@ -77,6 +117,8 @@ public class PassPointsRegistration {
 					shell.pack();
 					return;
 				}
+				
+				errorLabel.setText("");
 				
 				TuplePair t = new TuplePair(e.x, e.y);
 				
@@ -105,6 +147,14 @@ public class PassPointsRegistration {
             		errorLabel.setText("Your password must be " + PassPoints.CAPACITY + " points long. You're password so far has been deleted :)");
             	}
             }  
+        });
+        
+        confirmButton.addKeyListener(new KeyAdapter() {
+        	public void keyPressed(KeyEvent e) {
+        		if (e.keyCode == SWT.CR) {
+        			confirmButton.setSelection(true);
+        		}
+        	}
         });
         
         

@@ -14,14 +14,13 @@ public class Digraph {
 			"weather-sunny","weather-stormy","weather-windy","weather-windy-cloudy",
 			"wifi","wifi-2","wifi-low","wifi-off","zoom-in","zoom-out"));
 	
-	private String tileA; // tile A and B are arbitrary it doesn't matter which is where
+	private String tileA; // tile A and B are arbitrary it doesn't matter which is which
 	private String tileB;
-	private boolean isSet;
+	private boolean isSet = false;
 	
 	public Digraph() {
 		tileA = null;
 		tileB = null;
-		isSet = false;
 	}
 	
 	public String getTileA() {
@@ -57,7 +56,9 @@ public class Digraph {
 		return isSet;
 	}
 	
-	public void isSet(boolean isSet) {
-		this.isSet = isSet;
+	public void clearPassword() {
+		this.tileA = null;
+		this.tileB = null;
+		this.isSet = false;
 	}
 }

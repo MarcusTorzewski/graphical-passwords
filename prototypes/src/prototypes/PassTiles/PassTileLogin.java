@@ -25,8 +25,7 @@ public class PassTileLogin {
 			return;
 		}
 		
-		
-		// ============== Generating an answer ==============
+		// ============== Generating the answer ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
@@ -50,6 +49,7 @@ public class PassTileLogin {
 		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
+ 		shell.setText("PassTile Login");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
@@ -63,7 +63,7 @@ public class PassTileLogin {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Click on " + PassTile.CAPACITY + "  image:");
+ 		infoLabel.setText("Click on the " + PassTile.CAPACITY + "  images in your password:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);
@@ -119,6 +119,34 @@ public class PassTileLogin {
         	});
         }
         
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
+        new Label(shell, SWT.NONE).setText("");  // spacer
+        
+        
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		input.clear();
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
+        
 
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
@@ -158,6 +186,13 @@ public class PassTileLogin {
 	}
 	
 	public static void loginBankStyle(Display display, PassTile password) {
+		if (!password.isSet()) {
+			Popup.passwordNotSet(display, 2);
+			return;
+		}
+		
+		// ============== Generating an answer ==============
+		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		remaining.removeAll(password.getTiles()); // should remove users password from remaining (no duplicates)
@@ -177,7 +212,6 @@ public class PassTileLogin {
 		ArrayList<String> answer = new ArrayList<String>(toDisplay);
 		Collections.sort(answer);
 		
-		
 		// (PassTiles.GRID_SIZE - password.getSize()) should account for the initial size of toDisplay
 		for (int i = 0; i < (PassTile.GRID_SIZE - answer.size()); i++) {
 			int n = r.nextInt(remaining.size() - 1);
@@ -190,7 +224,11 @@ public class PassTileLogin {
 		System.out.println(remaining);
 		System.out.println(toDisplay);
 		
+		
+		// ============== Creating the display ==============
+		
 		Shell shell = new Shell(display);
+ 		shell.setText("PassTile Bank-Style Login");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
@@ -260,6 +298,34 @@ public class PassTileLogin {
         		}
         	});
         }
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        cancelButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
+        new Label(shell, SWT.NONE).setText("");  // spacer
+        
+        
+        Button clearButton = new Button(shell, SWT.PUSH);
+        clearButton.setText("Clear");
+        gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+        clearButton.setLayoutData(gridData);
+        gridData.horizontalSpan = 2;
+        clearButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		input.clear();
+        		errorLabel.setText("Entry cleared.");
+        	}
+        });
         
 
         confirmButton.addSelectionListener(new SelectionAdapter() {

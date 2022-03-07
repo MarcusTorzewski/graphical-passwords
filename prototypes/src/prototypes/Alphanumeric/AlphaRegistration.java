@@ -13,11 +13,12 @@ public class AlphaRegistration {
 	/**
 	 * Standard alphanumeric password registration. User enters a password. It is checked against the conditions.
 	 * If the password satisfies the conditions it is accepted and the password is set. If not the user tries again.
-	 * @param password AlphanumericPassword class. isSet() can be either true or false. 
+	 * @param password alphanumeric password isSet() can be either true or false. 
 	 * The existing password will be overwritten.
 	 */
 	public static void register(Display display, AlphanumericPassword password) {
  		Shell shell = new Shell(display);
+ 		shell.setText("Alphanumeric Registration");
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 1;
@@ -63,7 +64,6 @@ public class AlphaRegistration {
         confirmButton.setText("Confirm");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         confirmButton.setLayoutData(gridData);
-        
 
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -91,6 +91,18 @@ public class AlphaRegistration {
         		if (e.keyCode == SWT.CR) {
         			confirmButton.setSelection(true);
         		}
+        	}
+        });
+        
+        
+        Button cancelButton = new Button(shell, SWT.PUSH);
+        cancelButton.setText("Cancel");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        cancelButton.setLayoutData(gridData);
+        cancelButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
         	}
         });
         
