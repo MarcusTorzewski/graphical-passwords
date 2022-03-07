@@ -27,6 +27,9 @@ public class PINLogin {
 		
 		ArrayList<Integer> input = new ArrayList<Integer>();
 		
+		
+		// ============== Creating the display ==============
+		
  		Shell shell = new Shell(display);
  		
  		GridLayout gridLayout = new GridLayout();
@@ -57,75 +60,10 @@ public class PINLogin {
         errorLabel.setLayoutData(gridData);
         
         
-        Text p1 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p1.setText("");
- 		p1.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p1.setLayoutData(gridData);
- 		
- 		
- 		Text p2 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p2.setText("");
- 		p2.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p2.setLayoutData(gridData);
- 		
- 		
- 		Text p3 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p3.setText("");
- 		p3.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p3.setLayoutData(gridData);
- 		
- 		
- 		Text p4 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
- 		p4.setText("");
- 		p4.setTextLimit(1);
- 		gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
- 		p4.setLayoutData(gridData);
- 		
- 		
- 		Button confirmButton = new Button(shell, SWT.PUSH);
-        confirmButton.setText("Confirm");
-        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        gridData.horizontalSpan = 4;
-        confirmButton.setLayoutData(gridData);
- 		
-        
-        confirmButton.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-            	input.add(Integer.parseInt(p1.getText()));
-            	input.add(Integer.parseInt(p2.getText()));
-            	input.add(Integer.parseInt(p3.getText()));
-            	input.add(Integer.parseInt(p4.getText()));
-            	
-            	if (input.size() != 4) {
-//            		errorLabel.setText("Your password must be 4 digits long.");
-//            		p1.setText("");
-//            		p2.setText("");
-//            		p3.setText("");
-//            		p4.setText("");
-//            		shell.pack();
-            	} else if (password.getPassword().equals(input)) {
-					Popup.loginSuccess(display);
-					shell.dispose();
-            	} else {
-            		errorLabel.setText("Incorrect! Please try again.");
-            		p1.setText("");
-            		p2.setText("");
-            		p3.setText("");
-            		p4.setText("");
-                	shell.pack();
-            	}
-            }
-        });
-        
-        
-        // for only allowing digits
-        VerifyListener listener = new VerifyListener() {
+        // Listener which limits text entry to digits:
+        VerifyListener digitsOnlyListener = new VerifyListener() {
         	@Override
-        	public void verifyText(VerifyEvent e ) {
+        	public void verifyText(VerifyEvent e) {
         		String string = e.text;
         		char[] chars = new char[string.length()];
         		if (chars.length < 1) {
@@ -139,10 +77,53 @@ public class PINLogin {
         	}
         };
         
- 		p1.addVerifyListener(listener);
- 		p2.addVerifyListener(listener);
- 		p3.addVerifyListener(listener);
- 		p4.addVerifyListener(listener);
+        ArrayList<Text> textBoxes = new ArrayList<Text>();
+        
+        for (int i = 0; i < PIN.LENGTH; i++) {
+        	textBoxes.add(new Text(shell, SWT.BORDER | SWT.PASSWORD));
+        	Text textBox = textBoxes.get(i);
+        	textBox.setText("");
+        	textBox.setTextLimit(1);
+        	gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+     		textBox.setLayoutData(gridData);
+     		textBox.addVerifyListener(digitsOnlyListener);
+        }
+ 		
+ 		
+ 		Button confirmButton = new Button(shell, SWT.PUSH);
+        confirmButton.setText("Confirm");
+        gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        gridData.horizontalSpan = 4;
+        confirmButton.setLayoutData(gridData);
+ 		
+        
+        confirmButton.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+            	for (int i = 0; i < PIN.LENGTH; i++) {
+            		Text textBox = textBoxes.get(i);
+            		if (textBox.getText().isEmpty()) {
+            			errorLabel.setText("You have not inputted " + PIN.LENGTH + " digits.");
+        				emptyTextBoxes(textBoxes);
+        				
+        				shell.pack();
+        				return;
+            		} else {
+            			input.add(Integer.parseInt(textBox.getText()));
+            		}
+            	}
+            	
+            	
+            	if (password.getPassword().equals(input)) {
+					Popup.loginSuccess(display);
+					shell.dispose();
+            	} else {
+            		errorLabel.setText("Incorrect! Please try again.");
+            		emptyTextBoxes(textBoxes);
+                	shell.pack();
+            	}
+            }
+        });
 
  		
         shell.pack();
@@ -156,7 +137,12 @@ public class PINLogin {
 		return;
 	}
 	    
-	
 
+	public static void emptyTextBoxes(ArrayList<Text> textBoxes) {
+		for (int i = 0; i < textBoxes.size(); i++) {
+			Text textBox = textBoxes.get(i);
+			textBox.setText("");
+		}
+	}
 }
 
