@@ -25,6 +25,9 @@ public class PassTileLogin {
 			return;
 		}
 		
+		
+		// ============== Generating an answer ==============
+		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
@@ -38,10 +41,13 @@ public class PassTileLogin {
 			remaining.remove(n);
 		}
 		
-		Collections.shuffle(toDisplay); // needed to make sure the users password isn't just the first 5 icons
+		Collections.shuffle(toDisplay); // Makes sure the users password isn't just the first 5 icons
 		
 		System.out.println(remaining);
 		System.out.println(toDisplay);
+		
+		
+		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
 		
@@ -152,23 +158,24 @@ public class PassTileLogin {
 	}
 	
 	public static void loginBankStyle(Display display, PassTile password) {
-		int noOfIcons = 3; // in future could be a parameter
 		ArrayList<String> input = new ArrayList<String>();
-		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES); // remove users tiles
+		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		remaining.removeAll(password.getTiles()); // should remove users password from remaining (no duplicates)
 		
 		// to display is initially empty then filled with 3 random icons from the users password
 		ArrayList<String> toDisplay = new ArrayList<String>();
 		ArrayList<String> userPassword = new ArrayList<String>(password.getTiles());
 		Random r = new Random();
-		for (int i = 0; i < noOfIcons; i++) {
+		
+		
+		for (int i = 0; i < PassTile.BANK_STYLE_SIZE; i++) {
 			int n = r.nextInt(userPassword.size() - 1);
 			toDisplay.add(userPassword.get(n));
 			userPassword.remove(n);
 		}
 		
 		ArrayList<String> answer = new ArrayList<String>(toDisplay);
-		
+		Collections.sort(answer);
 		
 		
 		// (PassTiles.GRID_SIZE - password.getSize()) should account for the initial size of toDisplay
@@ -197,7 +204,7 @@ public class PassTileLogin {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Double-click on " + PassTile.CAPACITY + "  image:");
+ 		infoLabel.setText("Select " + PassTile.BANK_STYLE_SIZE + "  images:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);
@@ -216,6 +223,7 @@ public class PassTileLogin {
         gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
         gridData.horizontalSpan = 3;
         errorLabel.setLayoutData(gridData);
+        
         
         // array of buttons are procedurally generated        
         ArrayList<Button> tiles = new ArrayList<Button>();
@@ -241,8 +249,8 @@ public class PassTileLogin {
     					return;
         			}
         			
-        			if (input.size() == PassTile.CAPACITY) {
-    					errorLabel.setText("You've already picked " + PassTile.CAPACITY + " points!");
+        			if (input.size() == PassTile.BANK_STYLE_SIZE) {
+    					errorLabel.setText("You've already picked " + PassTile.BANK_STYLE_SIZE + " points!");
     					shell.pack();
     					return;
         			}
@@ -257,15 +265,15 @@ public class PassTileLogin {
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
             public void widgetSelected(SelectionEvent e) {
-            	if (input.size() != PassTile.CAPACITY) {
+            	if (input.size() != PassTile.BANK_STYLE_SIZE) {
             		input.clear();
-            		errorLabel.setText("Your password must be " + PassTile.CAPACITY + " points long. You're password so far has been deleted :)");
+            		errorLabel.setText("Your password must be " + PassTile.BANK_STYLE_SIZE + " points long. You're password so far has been deleted :)");
             		shell.pack();
             		return;
             	} 
             	
             	Collections.sort(input);
-            	if (password.getTiles().equals(input)){
+            	if (answer.equals(input)){
             		Popup.loginSuccess(display);
             		shell.dispose();
             		return;

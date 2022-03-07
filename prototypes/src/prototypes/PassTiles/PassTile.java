@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PassTile {
+	public static int BANK_STYLE_SIZE = 3;
 	public static int CAPACITY = 5;
 	public static int GRID_SIZE = 25;
 	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("phone",
@@ -15,14 +16,12 @@ public class PassTile {
 			"weather-shower","weather-sunny","weather-stormy","weather-windy",
 			"weather-windy-cloudy","wifi","wifi-2","wifi-low","wifi-off","zoom-in","zoom-out")); // the array of all the available images' names
 	
-	private int size;
+	private int size = 0;
 	private ArrayList<String> tiles;
-	private boolean isSet;
+	private boolean isSet = false;
 	
 	public PassTile() {
-		this.size = 0;
 		this.tiles = null;
-		this.isSet = false;
 	}
 
 	public int getSize() {
@@ -41,5 +40,11 @@ public class PassTile {
 
 	public boolean isSet() {
 		return isSet;
-	}	
+	}
+	
+	public void clearPassword() {
+		this.tiles = null;
+		this.size = 0;
+		this.isSet = false;
+	}
 }
