@@ -31,7 +31,9 @@ public class DigraphLogin {
 		// ============== Generating Images to Display ==============
 		
 		ArrayList<String> remaining = new ArrayList<String>(Digraph.ALL_TILES);
-		ArrayList<String> toDisplay = new ArrayList<String>(password.getTiles());
+		ArrayList<String> toDisplay = new ArrayList<String>();
+		toDisplay.add(password.getTiles().getX());
+		toDisplay.add(password.getTiles().getY());
 		remaining.removeAll(toDisplay); // removes users password from remaining (no duplicates)
 		Random r = new Random();
 		
@@ -64,11 +66,11 @@ public class DigraphLogin {
 			digraph.get(x).add(t);
 			
 			
-			if (t.equals(password.getTileA())) {
+			if (t.equals(password.getTiles().getX())) {
 				aX = x;
 				aY = y;
 //				System.out.println(aX + "," + aY);
-			} else if (t.equals(password.getTileB())) {
+			} else if (t.equals(password.getTiles().getY())) {
 				bX = x;
 				bY = y;
 //				System.out.println(bX + "," + bY);
@@ -141,7 +143,7 @@ public class DigraphLogin {
 		answers.add(digraph.get(answer1X).get(answer1Y));
 		answers.add(digraph.get(answer2X).get(answer2Y));
 		
-		System.out.println(answers);
+//		System.out.println(answers);
 		
 		
 		// ============== Creating the display ==============
@@ -206,6 +208,8 @@ public class DigraphLogin {
     					shell.pack();
     					return;
         			}
+        			
+        			errorLabel.setText("");
         			
         			DigraphLogin.input = value;
         			System.out.println(input);

@@ -3,6 +3,8 @@ package prototypes.Digraph;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import prototypes.TuplePair;
+
 public class Digraph {
 	public static int GRID_SIZE = 25;
 	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("phone",
@@ -14,41 +16,19 @@ public class Digraph {
 			"weather-sunny","weather-stormy","weather-windy","weather-windy-cloudy",
 			"wifi","wifi-2","wifi-low","wifi-off","zoom-in","zoom-out"));
 	
-	private String tileA; // tile A and B are arbitrary it doesn't matter which is which
-	private String tileB;
+	private TuplePair<String> tiles;
 	private boolean isSet = false;
 	
 	public Digraph() {
-		tileA = null;
-		tileB = null;
+		tiles = null;
 	}
 	
-	public String getTileA() {
-		return tileA;
-	}
-	
-	public void setTileA(String tileA) {
-		this.tileA = tileA;
-	}
-	
-	public String getTileB() {
-		return tileB;
-	}
-	
-	public void setTileB(String tileB) {
-		this.tileB = tileB;
-	}
-	
-	public void setTiles(ArrayList<String> tiles) {
-		this.tileA = tiles.get(0);
-		this.tileB = tiles.get(1);
+	public void setTiles(TuplePair<String> tiles) {
+		this.tiles = tiles;
 		this.isSet = true;
 	}
 	
-	public ArrayList<String> getTiles() {
-		ArrayList<String> tiles = new ArrayList<String>();
-		tiles.add(tileA);
-		tiles.add(tileB);
+	public TuplePair<String> getTiles() {
 		return tiles;
 	}
 	
@@ -57,8 +37,7 @@ public class Digraph {
 	}
 	
 	public void clearPassword() {
-		this.tileA = null;
-		this.tileB = null;
+		this.tiles = null;
 		this.isSet = false;
 	}
 }

@@ -15,9 +15,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
-import prototypes.Support;
+import prototypes.TuplePair;
 import prototypes.PassTiles.PassTile;
-import prototypes.PassTiles.PassTileLogin;
 import prototypes.PassTiles.PassTileRegistration;
 
 public class DigraphRegistration {
@@ -148,7 +147,8 @@ public class DigraphRegistration {
         			input.clear();
         			errorLabel.setText("You did not select 2 images. Your password so far has been deleted");
         		} else {
-        			password.setTiles(input);
+        			TuplePair<String> t = new TuplePair<String>(input.get(0), input.get(1));
+        			password.setTiles(t);
             		Popup.registrationSuccess(display);
             		shell.dispose();
             		return;
@@ -165,7 +165,7 @@ public class DigraphRegistration {
         	}
         }
         
-        Popup.displaySelection(password.getTiles(), display);
+        Popup.displaySelection(input, display);
         
         return;
 	}

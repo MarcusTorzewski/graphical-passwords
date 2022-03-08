@@ -2,12 +2,14 @@ package prototypes.PassPoints;
 
 import java.util.*;
 
+import prototypes.TuplePair;
+
 public class PassPoints {
 	public static int CAPACITY = 5;
 	public static int BANK_STYLE_SIZE = 3; // number of points used in the bank-style login
 	
 	private int size = 0;
-	private ArrayList<TuplePair> points;
+	private ArrayList<TuplePair<Integer>> points;
 	private int imageCode = -1;
 	private boolean isSet = false;
 	
@@ -19,12 +21,12 @@ public class PassPoints {
 		return size;
 	}
 
-	public ArrayList<TuplePair> getPoints() {
+	public ArrayList<TuplePair<Integer>> getPoints() {
 		return points;
 	}
 	
 
-	public void setPoints(ArrayList<TuplePair> points) {
+	public void setPoints(ArrayList<TuplePair<Integer>> points) {
 		this.points = points;
 		this.size = points.size();
 		this.isSet = true;

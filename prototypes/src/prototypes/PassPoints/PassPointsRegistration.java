@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
+import prototypes.TuplePair;
 
 public class PassPointsRegistration {
 	
@@ -31,7 +32,7 @@ public class PassPointsRegistration {
 	 * The existing password will be overwritten.
 	 */
 	public static void register(Display display, PassPoints password) {
-		ArrayList<TuplePair> input = new ArrayList<TuplePair>();
+		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/PassPointsImage0.jpg";
 		
 		Shell shell = new Shell(display);
@@ -120,7 +121,7 @@ public class PassPointsRegistration {
 				
 				errorLabel.setText("");
 				
-				TuplePair t = new TuplePair(e.x, e.y);
+				TuplePair<Integer> t = new TuplePair<Integer>(e.x, e.y);
 				
 				input.add(t);
 			}

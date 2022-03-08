@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
+import prototypes.TuplePair;
 
 public class PassPointsLogin {
 	
@@ -24,7 +25,7 @@ public class PassPointsLogin {
 	 * Lee-way will be given to the user; points doesn't need to be pixel perfect.
 	 * @param display the display in use created by a parent call
 	 * @param password the PassPoints password set at registration - if the password 
-	 * is not set a popup is displayed to say as such
+	 * is not set a pop-up is displayed to say as such
 	 */
 	public static void login(Display display, PassPoints password) {
 		if (!password.isSet()) {
@@ -32,7 +33,7 @@ public class PassPointsLogin {
 			return;
 		}
 		
-		ArrayList<TuplePair> input = new ArrayList<TuplePair>();
+		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/PassPointsImage" + password.getImageCode() + ".jpg";
 		
 		Shell shell = new Shell(display);
@@ -119,7 +120,9 @@ public class PassPointsLogin {
 					return;
 				}
 				
-				TuplePair t = new TuplePair(e.x, e.y);
+				errorLabel.setText("");
+				
+				TuplePair<Integer> t = new TuplePair<Integer>(e.x, e.y);
 				
 				input.add(t);
 			}
@@ -147,8 +150,8 @@ public class PassPointsLogin {
             	if (input.size() == password.getSize()) {
             		// trad for loop over for each because i is needed to fetch both sets
             		for (int i = 0; i < input.size(); i ++) {
-            			TuplePair t = input.get(i);
-            			TuplePair u = password.getPoints().get(i);
+            			TuplePair<Integer> t = input.get(i);
+            			TuplePair<Integer> u = password.getPoints().get(i);
             			if ((u.getX() - 10 <= t.getX()) && (t.getX() <= u.getX() + 10)) {
             				if ((u.getY() - 10 <= t.getY()) && (t.getY() <= u.getY() + 10)) {
             					correctCounter++;
