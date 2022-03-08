@@ -13,6 +13,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 
 import prototypes.Popup;
+import prototypes.Support;
+import prototypes.Digraph.DigraphRegistration;
 
 public class PassTileRegistration {
 	
@@ -105,6 +107,8 @@ public class PassTileRegistration {
     					return;
         			}
         			
+    				errorLabel.setText("");
+        			
         			input.add(value);
         			System.out.println(input);
         		}
@@ -166,7 +170,9 @@ public class PassTileRegistration {
         	}
         }
         
+        Support.displaySelection(password.getTiles(), display);
+        
         return;
 	}
-
+	
 }

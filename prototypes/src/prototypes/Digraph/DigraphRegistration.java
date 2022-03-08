@@ -15,11 +15,14 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 import prototypes.Popup;
+import prototypes.Support;
 import prototypes.PassTiles.PassTile;
+import prototypes.PassTiles.PassTileLogin;
 import prototypes.PassTiles.PassTileRegistration;
 
 public class DigraphRegistration {
-	static int selectionSize = 5;
+	static int selectionSize = 2;
+	static int toDisplaySize = 5;
 	public static void register(Display display, Digraph password) {
 
 		ArrayList<String> input = new ArrayList<String>();
@@ -29,7 +32,7 @@ public class DigraphRegistration {
 		
 		// toDisplay is populated randomly with a selection of images
 		// toDisplay is then used to populate the GUI
-		for (int i = 0; i < selectionSize; i++) {
+		for (int i = 0; i < toDisplaySize; i++) {
 			int n = r.nextInt(remaining.size() - 1);
 			toDisplay.add(remaining.get(n));
 			remaining.remove(n);
@@ -74,7 +77,7 @@ public class DigraphRegistration {
         // array of buttons are procedurally generated        
         ArrayList<Button> tiles = new ArrayList<Button>();
         
-        for (int i = 0; i < selectionSize; i++) {
+        for (int i = 0; i < toDisplaySize; i++) {
         	tiles.add(new Button(shell, SWT.NONE));
         	Button tile = tiles.get(i);
         	gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
@@ -100,6 +103,8 @@ public class DigraphRegistration {
     					shell.pack();
     					return;
         			}
+        			
+        			errorLabel.setText("");
         			
         			input.add(value);
         			System.out.println(input);
@@ -160,7 +165,9 @@ public class DigraphRegistration {
         	}
         }
         
+        Support.displaySelection(password.getTiles(), display);
+        
         return;
 	}
-
+	
 }

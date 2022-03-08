@@ -1,16 +1,21 @@
 package prototypes;
 
+import java.util.ArrayList;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+
+import prototypes.Digraph.DigraphRegistration;
 
 public class Popup {
 	static Label titleLabel;
@@ -136,8 +141,6 @@ public class Popup {
 		GridData gridData;
 		
 		shell.setLayout(gridLayout);
-		
-		System.out.println(methodologyType);
 		
 		
 		Label titleLabel = new Label(shell, SWT.NONE);
@@ -326,6 +329,74 @@ public class Popup {
         }
         
         return;
+	}
+	
+	/**
+	 * Creates a pop-up window showing the user their selection, it is shown just after the complete
+	 * registration. This is to make their selection clear and easier to memorise. It is only for
+	 * tile based implementations (PassTiles & Digraph)
+	 * @param selection the arrayList of image names to be displayed
+	 * @param display the display in use created by a parent call
+	 */
+	public static void displaySelection(ArrayList<String> selection, Display display) {
+		Shell shell = new Shell(display);
+ 		shell.setText("Digraph Registration");
+		
+		GridLayout gridLayout = new GridLayout();
+		GridData gridData;
+		gridLayout.numColumns = selection.size();
+ 		gridLayout.marginLeft = 5;
+ 		gridLayout.marginRight = 5;
+ 		gridLayout.marginTop = 5;
+ 		gridLayout.marginBottom = 5;
+
+ 		shell.setLayout(gridLayout);
+ 		
+ 		
+ 		Label infoLabel = new Label(shell, SWT.NONE);
+ 		infoLabel.setText("Here is your password. Try to remember it.\nIf you forget your password you can reset it by registering again.");
+ 		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+ 		gridData.horizontalSpan = selection.size();
+        infoLabel.setLayoutData(gridData);
+        
+        
+        ArrayList<Button> tiles = new ArrayList<Button>();
+        
+        for (int i = 0; i < selection.size(); i++) {
+        	tiles.add(new Button(shell, SWT.NONE));
+        	Button tile = tiles.get(i);
+        	gridData = new GridData(SWT.CENTER, SWT.CENTER, true, true);
+        	tile.setLayoutData(gridData);
+        	
+        	String value = selection.get(i);
+        	Image image = new Image(display, DigraphRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
+        	tile.setImage(image);
+        }
+        
+        
+        Button confirmButton = new Button(shell, SWT.PUSH);
+        confirmButton.setText("OK");
+        gridData = new GridData(SWT.CENTER, SWT.CENTER, true, true);
+        confirmButton.setLayoutData(gridData);
+        gridData.horizontalSpan = selection.size();
+        confirmButton.addSelectionListener(new SelectionAdapter() {
+        	@Override
+        	public void widgetSelected(SelectionEvent e) {
+        		shell.dispose();
+        	}
+        });
+        
+        
+        shell.pack();
+        shell.open();
+        
+        while (!shell.isDisposed()) {
+        	if (!display.readAndDispatch()) {
+        		display.sleep();
+        	}
+        }
+        
+		return;
 	}
 
 }
