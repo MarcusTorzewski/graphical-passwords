@@ -170,7 +170,7 @@ public class PassTileRegistration {
         	}
         }
         
-        Support.displaySelection(password.getTiles(), display);
+        Popup.displaySelection(password.getTiles(), display);
         
         return;
 	}
