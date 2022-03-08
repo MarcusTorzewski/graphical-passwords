@@ -22,7 +22,19 @@ import prototypes.PassTiles.PassTileRegistration;
 public class DigraphRegistration {
 	static int selectionSize = 2;
 	static int toDisplaySize = 5;
+	
+	/**
+	 * Registration for Digraph methodology. User selects two tiles from a small selection.
+	 * Their order is unimportant. After the user confirms their selection, they are show
+	 * their selection to help memorise it.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password Digraph password - isSet() can be either true or false; any
+	 * existing password will be overwritten
+	 */
 	public static void register(Display display, Digraph password) {
+		
+		// ============== Generating Images to Display ==============
 
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
@@ -37,6 +49,9 @@ public class DigraphRegistration {
 			remaining.remove(n);
 		}
 //		System.out.println(toDisplay);
+		
+		
+		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
  		shell.setText("Digraph Registration");
@@ -165,7 +180,7 @@ public class DigraphRegistration {
         	}
         }
         
-        Popup.displaySelection(input, display);
+        Popup.displaySelection(display, input);
         
         return;
 	}

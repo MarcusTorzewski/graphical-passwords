@@ -20,9 +20,10 @@ import prototypes.TuplePair;
 public class PassPointsLogin {
 	
 	/**
-	 * The standard login method for PassPoints. User re-selects the rough locations 
-	 * that they did in registration, order must be preserved for a successful attempt.
+	 * Standard login method for PassPoints. User re-selects the rough locations 
+	 * that they chose in registration, order must be preserved for a successful attempt.
 	 * Lee-way will be given to the user; points doesn't need to be pixel perfect.
+	 * 
 	 * @param display the display in use created by a parent call
 	 * @param password the PassPoints password set at registration - if the password 
 	 * is not set a pop-up is displayed to say as such
@@ -35,6 +36,9 @@ public class PassPointsLogin {
 		
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/PassPointsImage" + password.getImageCode() + ".jpg";
+
+		
+		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
  		shell.setText("PassPoints Login");

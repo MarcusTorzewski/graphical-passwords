@@ -23,17 +23,19 @@ import prototypes.TuplePair;
 public class PassPointsRegistration {
 	
 	/**
-	 * The standard registration method for PassPoints. User selects five points on
-	 * a randomly selected image, order is preserved in the password. There is a 
-	 * lee-way for the points; selection won't need to be pixel-perfect in the login.
+	 * Standard registration method for PassPoints. User selects five points on
+	 * a randomly selected image, order is preserved in the password.
 	 * 
 	 * @param display the display in use created by a parent call
-	 * @param password PassPoints password isSet() can be either true or false. 
-	 * The existing password will be overwritten.
+	 * @param password PassPoints password - isSet() can be either true or false; 
+	 * any existing password will be overwritten.
 	 */
 	public static void register(Display display, PassPoints password) {
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/PassPointsImage0.jpg";
+
+		
+		// ============== Creating the display ==============
 		
 		Shell shell = new Shell(display);
  		shell.setText("PassPoints Registration");

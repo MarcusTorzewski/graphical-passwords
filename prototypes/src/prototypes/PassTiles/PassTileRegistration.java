@@ -13,14 +13,21 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 
 import prototypes.Popup;
-import prototypes.Support;
-import prototypes.Digraph.DigraphRegistration;
 
 public class PassTileRegistration {
 	
+	/**
+	 * Standard registration method for PassTIle. User selects five images out of 
+	 * a selection, order is not preserved for the password. After the user confirms
+	 * their selection, they are shown their selection to help memorise it.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password PassTile password - isSet() can be either true or false;
+	 * any existing password will be overwritten.
+	 */
 	public static void register(Display display, PassTile password) {
 		
-		// ============== Generating the tiles ==============
+		// ============== Generating Images to Display ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
@@ -170,7 +177,7 @@ public class PassTileRegistration {
         	}
         }
         
-        Popup.displaySelection(password.getTiles(), display);
+        Popup.displaySelection(display, password.getTiles());
         
         return;
 	}

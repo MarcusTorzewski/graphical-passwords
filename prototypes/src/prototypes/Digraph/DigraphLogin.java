@@ -18,8 +18,23 @@ import org.eclipse.swt.widgets.Shell;
 import prototypes.Popup;
 
 public class DigraphLogin {
-
 	static String input = null;
+	
+	/**
+	 * Login for Digraph methodology. User selects one of two pass images depending on
+	 * where their key images (chosen at registration) appear in the grid. If they are
+	 * in the same row - the user selects one of the images directly to the right of 
+	 * the key images; if they are in the same column -  the user selects one of the 
+	 * images directly below the key images. These both wrap around to the first tile
+	 * if a key image appears at the end of a row or column; the pass image can also
+	 * be the same as one of the key images if they appear next to each other in the 
+	 * grid. It the key images appear in neither the same row or image - the user 
+	 * selects on of the images that forma rectangle with the pass images.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password Digraph password set at registration - if the password is not
+	 * set a pop-up is displayed saying as such 
+	 */
 	public static void login(Display display, Digraph password) {
 		if (!password.isSet()) {
 			Popup.passwordNotSet(display, 3);

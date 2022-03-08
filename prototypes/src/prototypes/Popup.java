@@ -23,7 +23,9 @@ public class Popup {
 	static Button confirmButton;
 	
 	/**
-	 * Creates pop-up window for login success. Simply says "Success! You have logged in."
+	 * Creates pop-up window for login success. Simply says "Success! You have 
+	 * logged in."
+	 * 
 	 * @param display the display in use created by a parent call.
 	 */
 	public static void loginSuccess(Display display) {
@@ -73,7 +75,9 @@ public class Popup {
 	}
 
 	/**
-	 * Creates pop-up window for registration success. Simply says "Success! You have created a password."
+	 * Creates pop-up window for registration success. Simply says "Success! 
+	 * You have created a password."
+	 * 
 	 * @param display the display in use created by a parent call.
 	 */
 	public static void registrationSuccess(Display display) {
@@ -126,6 +130,7 @@ public class Popup {
 	/**
 	 * Creates pop-up window informing the user how the methodology selected works. 
 	 * @param display the display in use created by a parent call.
+	 * 
 	 * @param methodologyType int corresponding to the methodology 0 - alphanumeric 1 - PassPoints/Hybrid
 	 * 2 - PassTile 3 - Digraph 4 - PIN
 	 */
@@ -259,6 +264,7 @@ public class Popup {
 	/**
 	 * Creates pop-up window informing the user they have not set a password for the methodology
 	 * and therefore cannot perform a log-in attempt. 
+	 * 
 	 * @param display the display in use created by a parent call.
 	 * @param methodologyType int corresponding to the methodology 0 - alphanumeric 1 - PassPoints
 	 * 2 - PassTile 3 - Digraph 4 - PIN 5 - Hybrid
@@ -335,10 +341,11 @@ public class Popup {
 	 * Creates a pop-up window showing the user their selection, it is shown just after the complete
 	 * registration. This is to make their selection clear and easier to memorise. It is only for
 	 * tile based implementations (PassTiles & Digraph)
-	 * @param selection the arrayList of image names to be displayed
+	 * 
 	 * @param display the display in use created by a parent call
+	 * @param selection the arrayList of image names to be displayed
 	 */
-	public static void displaySelection(ArrayList<String> selection, Display display) {
+	public static void displaySelection(Display display, ArrayList<String> selection) {
 		Shell shell = new Shell(display);
  		shell.setText("Digraph Registration");
 		

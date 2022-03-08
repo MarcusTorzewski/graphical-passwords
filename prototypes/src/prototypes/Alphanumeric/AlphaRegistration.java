@@ -11,14 +11,20 @@ import org.eclipse.swt.layout.*;
 public class AlphaRegistration {
 	
 	/**
-	 * Standard alphanumeric password registration. User enters a password. It is checked against the conditions.
-	 * If the password satisfies the conditions it is accepted and the password is set. If not the user tries again.
-	 * @param password alphanumeric password isSet() can be either true or false. 
-	 * The existing password will be overwritten.
+	 * Standard alphanumeric password registration. User enters a password. It is 
+	 * checked against the conditions. If the password satisfies the conditions 
+	 * it is accepted and the password is set. If not the user tries again.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password alphanumeric password - isSet() can be either true or false; 
+	 * any existing password will be overwritten
 	 */
 	public static void register(Display display, AlphanumericPassword password) {
- 		Shell shell = new Shell(display);
- 		shell.setText("Alphanumeric Registration");
+
+		// ============== Creating the display ==============
+
+		Shell shell = new Shell(display);
+ 		shell.setText("Alphanumeric Registration"); 		
  		
  		GridLayout gridLayout = new GridLayout();
  		gridLayout.numColumns = 1;

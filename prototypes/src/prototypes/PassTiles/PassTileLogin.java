@@ -19,13 +19,22 @@ import prototypes.Popup;
 
 public class PassTileLogin {
 	
+	/**
+	 * Standard log-in method for PassTile. User re-selects all five of the images
+	 * they chose in registration. Order is not preserved and the user can select
+	 * them in any order.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password the PassTile password set at registration -  if the password 
+	 * is not set a pop-up is displayed to saying as such
+	 */
 	public static void login(Display display, PassTile password) {
 		if (!password.isSet()) {
 			Popup.passwordNotSet(display, 2);
 			return;
 		}
 		
-		// ============== Generating the answer ==============
+		// ============== Generating Images to Display ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
@@ -112,6 +121,8 @@ public class PassTileLogin {
     					shell.pack();
     					return;
         			}
+
+    				errorLabel.setText("");
         			
         			input.add(value);
         			System.out.println(input);
@@ -185,13 +196,22 @@ public class PassTileLogin {
         return;
 	}
 	
+	/**
+	 * Alternative login methodology for PassTile passwords. User must select the amount
+	 * of images from their password specified by the window. Order is not preserved and
+	 * they can select them in any order.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password PassTile password set at registration - if the password has not 
+	 * yet been set the user will receive a pop-up saying as such
+	 */
 	public static void loginBankStyle(Display display, PassTile password) {
 		if (!password.isSet()) {
 			Popup.passwordNotSet(display, 2);
 			return;
 		}
 		
-		// ============== Generating an answer ==============
+		// ============== Generating Images to Display ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);

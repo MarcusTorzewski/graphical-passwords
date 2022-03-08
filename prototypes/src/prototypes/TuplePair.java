@@ -21,24 +21,6 @@ public class TuplePair<T> {
 		return y;
 	}
 	
-//	public boolean contains(T value) {
-//		if (x == value || y == value) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
-//	
-//	public int size() {
-//		if (x == null && y == null) {
-//			return 0;
-//		} if (x == null || y == null) {
-//			return 1;
-//		} else {
-//			return 2;
-//		}
-//	}
-	
     @Override
     public boolean equals(Object o) {
  

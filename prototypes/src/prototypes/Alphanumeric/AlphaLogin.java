@@ -20,10 +20,12 @@ public class AlphaLogin {
  	private static String input = "";
 	
 	/**
-	 * Standard alphanumeric login. User enters their password and it is checked against the actual password. 
-	 * If it is incorrect the user tries again. 
-	 * @param password alphanumeric password set at registration - if the password has not yet
-	 * been set the user will receive a pop-up saying as such.
+	 * Standard alphanumeric login. User enters their password and it is checked
+	 * against the actual password. If it is incorrect the user must try again. 
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password alphanumeric password set at registration - if the password
+	 * has not yet been set the user will receive a pop-up saying as such
 	 */
 	public static void login(Display display, AlphanumericPassword password) {
 		if (!password.isSet()) {
@@ -102,13 +104,20 @@ public class AlphaLogin {
 		return;
 	}
 	
-	
+	/**
+	 * Alternative login methodology for alphanumeric passwords. User must enter 
+	 * the characters corresponding to the digits requested. The digits are randomly
+	 * generated inside this method.
+	 * 
+	 * @param display the display in use created by a parent call 
+	 * @param password alphanumeric password set at registration - if the password has 
+	 * not yet been set the user will receive a pop-up saying as such
+	 */
 	public static void bankStyleLogin(Display display, AlphanumericPassword password) {
 		if (!password.isSet()) {
 			Popup.passwordNotSet(display, 0);
 			return;
 		}
-		
 		
 		// ============== Generating an answer ==============
 		
@@ -176,7 +185,7 @@ public class AlphaLogin {
         	gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
         	label.setLayoutData(gridData);
         	
-        	label.setText(Integer.toString(digits.get(i) + 1));
+        	label.setText(Integer.toString(digits.get(i) + 1)); // to turn array index value to human index value
         }
         
         
