@@ -263,13 +263,13 @@ public class Homepage {
  		});
  		
  		
- 		Button passPointsHybridLoginButton = new Button(shell, SWT.PUSH);
- 		passPointsHybridLoginButton.setText("Hybrid Image Login");
+ 		Button hybridLoginButton = new Button(shell, SWT.PUSH);
+ 		hybridLoginButton.setText("Hybrid Image Login");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
  		gridData.horizontalSpan = 1;
  		gridData.verticalSpan = 2;
- 		passPointsHybridLoginButton.setLayoutData(gridData);
- 		passPointsHybridLoginButton.addSelectionListener(new SelectionAdapter() {
+ 		hybridLoginButton.setLayoutData(gridData);
+ 		hybridLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
  				return;
@@ -376,7 +376,7 @@ public class Homepage {
  		digraphHelpButton.setText("Help");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
  		gridData.horizontalSpan = 2;
- 		gridData.verticalSpan = 1;
+ 		gridData.verticalSpan = 2;
  		digraphHelpButton.setLayoutData(gridData);
  		digraphHelpButton.addSelectionListener(new SelectionAdapter() {
  			@Override
@@ -386,6 +386,147 @@ public class Homepage {
  		});
  		
  		
+ 		Label alphaIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		alphaIsSetTitleLabel.setText("Alphanumeric");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = alphaIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		alphaIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		alphaIsSetTitleLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label pinIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		pinIsSetTitleLabel.setText("PIN");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = pinIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		pinIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		pinIsSetTitleLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label passPointsIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		passPointsIsSetTitleLabel.setText("PassPoints");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = passPointsIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		passPointsIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		passPointsIsSetTitleLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label hybridIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		hybridIsSetTitleLabel.setText("Hyrbid");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = hybridIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		hybridIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		hybridIsSetTitleLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label alphaIsSetLabel = new Label(shell, SWT.NONE);
+ 		alphaIsSetLabel.setText("Not Set");
+ 		alphaIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = alphaIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		alphaIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		alphaIsSetLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label pinIsSetLabel = new Label(shell, SWT.NONE);
+ 		pinIsSetLabel.setText("Not Set");
+ 		pinIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = pinIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		pinIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		pinIsSetLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label passPointsIsSetLabel = new Label(shell, SWT.NONE);
+ 		passPointsIsSetLabel.setText("Not Set");
+ 		passPointsIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = passPointsIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		passPointsIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		passPointsIsSetLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label hybridIsSetLabel = new Label(shell, SWT.NONE);
+ 		hybridIsSetLabel.setText("Not Set");
+ 		hybridIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = hybridIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		hybridIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		hybridIsSetLabel.setLayoutData(gridData);
+ 		new Label(shell, SWT.NONE).setText("");  // spacer
+ 		
+ 		
+ 		Label passTileIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		passTileIsSetTitleLabel.setText("PassPoints");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = passTileIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		passTileIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		passTileIsSetTitleLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label digraphIsSetTitleLabel = new Label(shell, SWT.NONE);
+ 		digraphIsSetTitleLabel.setText("PassPoints");
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = digraphIsSetTitleLabel.getFont().getFontData();
+ 		fD[0].setHeight(12);
+ 		digraphIsSetTitleLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		digraphIsSetTitleLabel.setLayoutData(gridData);
+ 		new Label(shell, SWT.NONE).setText("");  // spacer
+ 		new Label(shell, SWT.NONE).setText("");  // spacer
+ 		
+ 		
+ 		Label passTileIsSetLabel = new Label(shell, SWT.NONE);
+ 		passTileIsSetLabel.setText("Not Set");
+ 		passTileIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = passTileIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		passTileIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		passTileIsSetLabel.setLayoutData(gridData);
+ 		
+ 		
+ 		Label digraphIsSetLabel = new Label(shell, SWT.NONE);
+ 		digraphIsSetLabel.setText("Not Set");
+ 		digraphIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_RED));
+ 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+ 		fD = digraphIsSetLabel.getFont().getFontData();
+ 		fD[0].setHeight(10);
+ 		digraphIsSetLabel.setFont(new Font(display,fD[0]));
+ 		gridData.horizontalSpan = 1;
+ 		gridData.verticalSpan = 1;
+ 		digraphIsSetLabel.setLayoutData(gridData);
+ 		
+ 		
  		shell.pack();
         shell.open();
         
@@ -393,14 +534,33 @@ public class Homepage {
         	if (!display.readAndDispatch()) {
         		display.sleep();
         	}
+        	
+        	if (ap.isSet()) {
+        		alphaIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		alphaIsSetLabel.setText("Set");
+        	}
+        	if (pin.isSet()) {
+        		pinIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		pinIsSetLabel.setText("Set");
+        	}
+        	if (pp.isSet()) {
+        		passPointsIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		passPointsIsSetLabel.setText("Set");
+        	}
+        	if (hpp.isSet()){
+        		hybridIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		hybridIsSetLabel.setText("Set");
+        	}
+        	if (pt.isSet()){
+        		passTileIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		passTileIsSetLabel.setText("Set");
+        	}
+        	if (dp.isSet()){
+        		digraphIsSetLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        		digraphIsSetLabel.setText("Set");
+        	}
         }
         
         display.dispose();
 	}
-	
-	
-//	public static void registration(SelectionEvent e) {
-//		
-//	}
-
 }
