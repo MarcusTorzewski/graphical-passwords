@@ -376,6 +376,7 @@ public class Popup {
         	tile.setLayoutData(gridData);
         	
         	String value = selection.get(i);
+        	System.out.println(value);
         	Image image = new Image(display, DigraphRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         }

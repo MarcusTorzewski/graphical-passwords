@@ -7,14 +7,20 @@ public class PassTile {
 	public static int BANK_STYLE_SIZE = 3;
 	public static int CAPACITY = 5;
 	public static int GRID_SIZE = 25;
-	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("phone",
-			"phone-hang-up","phone-incoming","phone-missed","phone-off", "phone-outgoing",
-			"phone-talking","text-align-center","text-align-justify","text-align-left",
-			"text-align-right","user","user-add","user-check","user-error","user-list",
-			"user-love","users-add","volume-down","volume-mute","volume-off","volume-up",
-			"weather-downpour","weather-night","weather-partly-night","weather-partly-sunny",
-			"weather-shower","weather-sunny","weather-stormy","weather-windy",
-			"weather-windy-cloudy","wifi","wifi-2","wifi-low","wifi-off","zoom-in","zoom-out")); // the array of all the available images' names
+	//public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("phone",
+//			"phone-hang-up","phone-incoming","phone-missed","phone-off", "phone-outgoing",
+//			"phone-talking","text-align-center","text-align-justify","text-align-left",
+//			"text-align-right","user","user-add","user-check","user-error","user-list",
+//			"user-love","users-add","volume-down","volume-mute","volume-off","volume-up",
+//			"weather-downpour","weather-night","weather-partly-night","weather-partly-sunny",
+//			"weather-shower","weather-sunny","weather-stormy","weather-windy",
+//			"weather-windy-cloudy","wifi","wifi-2","wifi-low","wifi-off","zoom-in","zoom-out")); 
+	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("airplane",
+			"alarm","attachment","basketball","bicycle","bluetooth","bucket","bug","camera",
+			"car","coffee","diamond","emoji","factory","fish","food","gift","headphone",
+			"health","key","light","lightning","lock","microphone","moon","music","notification",
+			"phone","piggy-bank","pin","rocket","snow","sun","tool","trash","trophy","umbrella",
+			"user","volume","weather-partly-night","weather-shower"));// the array of all the available images' names
 	
 	private int size = 0;
 	private ArrayList<String> tiles;
@@ -47,4 +53,7 @@ public class PassTile {
 		this.size = 0;
 		this.isSet = false;
 	}
+	
+	
+
 }
