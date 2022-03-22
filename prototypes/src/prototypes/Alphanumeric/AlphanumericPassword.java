@@ -1,7 +1,7 @@
 package prototypes.Alphanumeric;
 
 public class AlphanumericPassword {
-	public static int BANK_STYLE_SIZE = 4;
+	public static final int BANK_STYLE_SIZE = 4;
 	
 	private String password;
 	private boolean isSet = false;

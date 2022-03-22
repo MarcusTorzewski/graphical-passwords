@@ -6,8 +6,8 @@ import java.util.Arrays;
 import prototypes.TuplePair;
 
 public class Digraph {
-	public static int GRID_SIZE = 25;
-	public static ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("airplane",
+	public static final int GRID_SIZE = 25;
+	public static final ArrayList<String> ALL_TILES = new ArrayList<String>(Arrays.asList("airplane",
 			"alarm","attachment","basketball","bicycle","bluetooth","bucket","bug","camera",
 			"car","coffee","diamond","emoji","factory","fish","food","gift","headphone",
 			"health","key","light","lightning","lock","microphone","moon","music","notification",

@@ -5,8 +5,8 @@ import java.util.*;
 import prototypes.TuplePair;
 
 public class PassPoints {
-	public static int CAPACITY = 5;
-	public static int BANK_STYLE_SIZE = 3; // number of points used in the bank-style login
+	public static final int CAPACITY = 5;
+	public static final int BANK_STYLE_SIZE = 3; // number of points used in the bank-style login
 	
 	private int size = 0;
 	private ArrayList<TuplePair<Integer>> points;

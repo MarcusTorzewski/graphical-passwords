@@ -178,7 +178,7 @@ public class DigraphLogin {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Click on  2  image:");
+ 		infoLabel.setText("Click on 1 pass image:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);

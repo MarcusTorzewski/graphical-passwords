@@ -106,10 +106,13 @@ public class PassPointsLogin {
         gridData.horizontalSpan = 4;
         photo.setLayoutData(gridData);
         photo.setImage(image);
+        
+        
 
-        photo.addMouseListener(new MouseListener() {
+        photo.addMouseListener(new MouseListener() {        	
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
+				addInput(e, input, shell, errorLabel);
 				System.out.println(e.x + " " + e.y);
 				
 				if (input.size() == PassPoints.CAPACITY) {
@@ -135,7 +138,7 @@ public class PassPointsLogin {
 			public void mouseDown(MouseEvent e) { return; }
 
 			@Override
-			public void mouseUp(MouseEvent e) { return; }
+			public void mouseUp(MouseEvent e) { return;	}
         });
         
         
@@ -190,5 +193,27 @@ public class PassPointsLogin {
         }
         
         return;
+	}
+	
+	public static void addInput(MouseEvent e, ArrayList<TuplePair<Integer>> input, Shell shell, Label errorLabel) {
+		System.out.println(e.x + " " + e.y);
+		
+		if (input.size() == PassPoints.CAPACITY) {
+			errorLabel.setText("You've already picked " + PassPoints.CAPACITY + " points!");
+			shell.pack();
+			return;
+		}
+		
+		if ((e.x <= 0)|| (e.y <= 0)) {
+			errorLabel.setText("You cannot pick a point along a side of the image! Try to pick a point away from the edges.");
+			shell.pack();
+			return;
+		}
+		
+		errorLabel.setText("");
+		
+		TuplePair<Integer> t = new TuplePair<Integer>(e.x, e.y);
+		
+		input.add(t);
 	}
 }

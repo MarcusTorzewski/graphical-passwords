@@ -30,6 +30,7 @@ public class Popup {
 	 */
 	public static void loginSuccess(Display display) {
 		Shell shell = new Shell(display);
+		shell.setText("Login Success");
 		
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
@@ -82,6 +83,7 @@ public class Popup {
 	 */
 	public static void registrationSuccess(Display display) {
 		Shell shell = new Shell(display);
+		shell.setText("Registration Success");
 		
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
@@ -136,9 +138,10 @@ public class Popup {
 	 */
 	public static void passwordHelp(Display display, int methodologyType) {		
 		Shell shell = new Shell(display);
+		shell.setText("Help");
 		
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 1;
+		gridLayout.numColumns = 3;
 		gridLayout.marginLeft = 15;
  		gridLayout.marginRight = 15;
  		gridLayout.marginTop = 15;
@@ -153,13 +156,14 @@ public class Popup {
  		FontData[] fD = titleLabel.getFont().getFontData();
  		fD[0].setHeight(20);
  		titleLabel.setFont( new Font(display,fD[0]));
- 		gridData.horizontalSpan = 4;
+ 		gridData.horizontalSpan = 3;
  		gridData.verticalSpan = 2;
  		titleLabel.setLayoutData(gridData);
 		
 		
 		infoLabel = new Label(shell, SWT.NONE);
 		gridData = new GridData(SWT.CENTER, SWT.FILL, true, true);
+		gridData.horizontalSpan = 3;
 		infoLabel.setLayoutData(gridData);
 		
 		switch (methodologyType) {
@@ -206,6 +210,25 @@ public class Popup {
 						+ "In the first two instances (same row or column), it is possible for a key image to also be a pass image if it occurrs\n"
 						+ "directly after the other key image.\n\n"
 						+ "To clear your password simply register again.");
+				
+				Image image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-1.png"));
+				Label helpDiagramRowPhoto = new Label(shell, SWT.BORDER);
+				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
+				helpDiagramRowPhoto.setLayoutData(gridData);
+				helpDiagramRowPhoto.setImage(image);
+				
+				image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-2.png"));
+				Label helpDiagramColumnPhoto = new Label(shell, SWT.BORDER);
+				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
+				helpDiagramColumnPhoto.setLayoutData(gridData);
+				helpDiagramColumnPhoto.setImage(image);
+				
+				image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-3.png"));
+				Label helpDiagramRectanglePhoto = new Label(shell, SWT.BORDER);
+				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
+				helpDiagramRectanglePhoto.setLayoutData(gridData);
+				helpDiagramRectanglePhoto.setImage(image);
+				
 				break;
 			case 4:
 				// PIN
@@ -238,6 +261,7 @@ public class Popup {
 		confirmButton = new Button(shell, SWT.PUSH);
 		confirmButton.setText("OK");
 		gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gridData.horizontalSpan = 3;
 		confirmButton.setLayoutData(gridData);
 		
 		confirmButton.addSelectionListener(new SelectionAdapter() {
@@ -293,6 +317,7 @@ public class Popup {
 		}
 		
 		Shell shell = new Shell(display);
+		shell.setText("Password Not Set");
 		
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
@@ -347,7 +372,7 @@ public class Popup {
 	 */
 	public static void displaySelection(Display display, ArrayList<String> selection) {
 		Shell shell = new Shell(display);
- 		shell.setText("Digraph Registration");
+ 		shell.setText("Selection");
 		
 		GridLayout gridLayout = new GridLayout();
 		GridData gridData;
