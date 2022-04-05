@@ -66,7 +66,7 @@ public class AlphaLogin {
  		
 
  		Button confirmButton = new Button(shell, SWT.PUSH);
-        confirmButton.setText("Show Password");
+        confirmButton.setText("Log In");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         confirmButton.setLayoutData(gridData);
         
@@ -212,6 +212,7 @@ public class AlphaLogin {
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
         	public void widgetSelected(SelectionEvent e) {
+        		input = "";
         		for (int i = 0; i < AlphanumericPassword.BANK_STYLE_SIZE; i ++) {
         			Text textBox = textBoxes.get(i);
         			if (textBox.getText().isEmpty()) {
@@ -225,6 +226,7 @@ public class AlphaLogin {
         			}
         		}
         		
+        		System.out.println(input);
         		if (a.equals(input)) {
         			Popup.loginSuccess(display);
             		shell.dispose();

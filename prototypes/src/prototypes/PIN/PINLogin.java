@@ -48,7 +48,7 @@ public class PINLogin {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
-        infoLabel.setText("Enter a PIN:");
+        infoLabel.setText("Enter a PIN (one number per box):");
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         gridData.horizontalSpan = 4;
         infoLabel.setLayoutData(gridData);
@@ -73,6 +73,7 @@ public class PINLogin {
         		string.getChars(0, chars.length, chars, 0);
         		if (!('0' <= chars[0] && chars[0] <= '9')) {
         			e.doit = false;
+        			errorLabel.setText("Only enter numbers.");
         			return;
         		}
         	}
