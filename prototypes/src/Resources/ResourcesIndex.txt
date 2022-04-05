@@ -6,7 +6,26 @@ Resources:
 	Images:
 	- https://www.behance.net/gallery/54310993/WEO-ICONS-Free-Icon-Set
 		Used as the icons for PassTiles images
-	- find image used in passPoints
+	- pass points:
+		https://www.freeimages.com/photo/so-busy-1469030			- crowd
+		FLUID????
+	
+	- hybrid images:
+		Key images:
+		https://www.freeimages.com/photo/object-with-path-1552086 	- rubik's cube
+		https://www.freeimages.com/photo/bird-1383764 				- bird
+		https://www.freeimages.com/photo/tree-1552037				- tree
+		
+		Decoy images:
+		https://www.freeimages.com/photo/flowers-1546663			- flowers
+		https://www.freeimages.com/photo/gauge-1171485				- gauge
+		https://www.freeimages.com/photo/beach-boat-1535703			- beach
+		https://www.freeimages.com/photo/cat-1407260				- cat
+		https://www.freeimages.com/photo/lemon-1198617				- lime (its a lime)
+		https://www.freeimages.com/photo/in-the-kitchen-1327655		- salad
+		https://www.freeimages.com/photo/grating-1197485			- fence
+		https://www.freeimages.com/photo/typical-old-district-4-1219129	- street
+		https://www.freeimages.com/photo/landscape-1387468			- landscape
 	
 	
 	

@@ -6,7 +6,13 @@ import prototypes.TuplePair;
 
 public class PassPoints {
 	public static final int CAPACITY = 5;
-	public static final int BANK_STYLE_SIZE = 3; // number of points used in the bank-style login
+	public static final int HYBRID_CAPACITY = 3; // reduced because images have less detail
+	public static final String[] PASS_POINTS_IMAGES = {"fluid", "crowd"};
+	public static final String[] HYBRID_KEY_IMAGES = {"bird","cube","tree"};
+	public static final String[][] HYBRID_DECOY_IMAGES = {{"beach","flowers","gauge","lime","plane"},
+			{"gauge","lime","plane","salad","street"},
+			{"cat","fence","flowers","landscape","lime"}};
+
 	
 	private int size = 0;
 	private ArrayList<TuplePair<Integer>> points;

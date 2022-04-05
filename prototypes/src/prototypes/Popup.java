@@ -176,8 +176,8 @@ public class Popup {
 						+ "Register - to register double click five memorable points on the image shown to you and remember the order.\n\n"
 						+ "Login - to log in select the same five points in the order you originally chose them.\n\n"
 						+ "Hybrid - the hybrid variant is almost exactly the same from the users perspective. The only difference is that\n"
-						+ "the image will actually be two images superimposed on each other.\n"
-						+ "You should choose five points based on the harder to see image.\n\n"
+						+ "after registration the image will actually be two images superimposed on each other.\n"
+						+ "You should choose three points based instead of five.\n\n"
 						+ "To clear your password simply register again.");
 				break;
 			case 2:

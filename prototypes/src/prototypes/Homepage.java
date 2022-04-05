@@ -230,7 +230,7 @@ public class Homepage {
  		hybridRegistrationButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				return;
+ 				PassPointsRegistration.hybridRegister(display, hpp);;
  			}
  		});
  		
@@ -272,7 +272,7 @@ public class Homepage {
  		hybridLoginButton.addSelectionListener(new SelectionAdapter() {
  			@Override
  			public void widgetSelected(SelectionEvent e) {
- 				return;
+ 				PassPointsLogin.hybridLogin(display, hpp);
  			}
  		});
  		
