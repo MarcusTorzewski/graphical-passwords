@@ -74,12 +74,12 @@ public class AlphaRegistration {
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if ((passwordLabel.getText().length() > 5) && (passwordLabel.getText().equals(passwordCheckLabel.getText()))) {
+            	if ((passwordLabel.getText().length() >= AlphanumericPassword.MINIMUM_SIZE) && (passwordLabel.getText().equals(passwordCheckLabel.getText()))) {
 					password.setPassword(passwordLabel.getText());
 					Popup.registrationSuccess(display);
 					shell.dispose();
-            	} else if (!(passwordLabel.getText().length() > 5)) {
-            		errorLabel.setText("Your password must be over 5 characters long.");
+            	} else if (passwordLabel.getText().length() <= AlphanumericPassword.MINIMUM_SIZE) {
+            		errorLabel.setText("Your password must be 6 characters long.");
             		passwordLabel.setText("");
             		passwordCheckLabel.setText("");
             		shell.pack();
