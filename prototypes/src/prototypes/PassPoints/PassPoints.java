@@ -7,7 +7,7 @@ import prototypes.TuplePair;
 public class PassPoints {
 	public static final int CAPACITY = 5;
 	public static final int HYBRID_CAPACITY = 3; // reduced because images have less detail
-	public static final String[] PASS_POINTS_IMAGES = {"fluid", "crowd"};
+	public static final String[] PASS_POINTS_IMAGES = {"fluid","crowd","newyork"};
 	public static final String[] HYBRID_KEY_IMAGES = {"bird","cube","tree"};
 	public static final String[][] HYBRID_DECOY_IMAGES = {{"beach","flowers","gauge","lime","plane"},
 			{"gauge","lime","plane","salad","street"},
@@ -55,5 +55,62 @@ public class PassPoints {
 		this.size = 0;
 		this.isSet = false;
 		this.imageCode = -1;
+	}
+	
+	public int checkMatch(ArrayList<TuplePair<Integer>> input) {
+		if (input.size() != points.size()) {
+			return -1;
+		}
+		
+		int correctCounter = 0;
+    	if (input.size() == points.size()) {
+    		// trad for loop over for each because i is needed to fetch both sets
+    		for (int i = 0; i < input.size(); i ++) {
+    			TuplePair<Integer> t = input.get(i);
+    			TuplePair<Integer> u = points.get(i);
+    			if ((u.getX() - 10 <= t.getX()) && (t.getX() <= u.getX() + 10)) {
+    				if ((u.getY() - 10 <= t.getY()) && (t.getY() <= u.getY() + 10)) {
+    					correctCounter++;
+    					continue;
+    				}
+    				continue;
+    			}
+    		}
+    	}
+    	
+		if (correctCounter == points.size()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	public int checkHybridMatch(ArrayList<TuplePair<Integer>> input) {
+		if (input.size() != points.size()) {
+			return -1;
+		}
+		
+		int correctCounter = 0;
+    	// needed?
+    	if (input.size() == points.size()) {
+    		// trad for loop over for each because i is needed to fetch both sets
+    		for (int i = 0; i < input.size(); i ++) {
+    			TuplePair<Integer> t = input.get(i);
+    			TuplePair<Integer> u = points.get(i);
+    			if ((u.getX() - 20 <= t.getX()) && (t.getX() <= u.getX() + 20)) {
+    				if ((u.getY() - 20 <= t.getY()) && (t.getY() <= u.getY() + 20)) {
+    					correctCounter++;
+    					continue;
+    				}
+    				continue;
+    			}
+    		}
+    	}
+    	
+		if (correctCounter == points.size()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }

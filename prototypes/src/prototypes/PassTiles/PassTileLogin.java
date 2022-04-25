@@ -89,7 +89,6 @@ public class PassTileLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	System.out.println(value);
         	Image image = new Image(display, PassTileLogin.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	
@@ -109,9 +108,7 @@ public class PassTileLogin {
         			}
 
     				errorLabel.setText("");
-        			
         			input.add(value);
-        			System.out.println(input);
         		}
         	});
         }
@@ -148,24 +145,30 @@ public class PassTileLogin {
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
             public void widgetSelected(SelectionEvent e) {
-            	if (input.size() != PassTile.CAPACITY) {
-            		input.clear();
-            		errorLabel.setText("Your password must be " + PassTile.CAPACITY + " points long. You're password so far has been deleted :)");
-            		shell.pack();
-            		return;
-            	} 
-            	
-            	Collections.sort(input);
-            	if (password.getTiles().equals(input)){
-            		Popup.loginSuccess(display);
-            		shell.dispose();
-            		return;
-            	} else {
-            		input.clear();
-            		errorLabel.setText("Your password did not match your entry. Please try again.");
-            		shell.pack();
-            		return;
-            	}
+        		
+        		switch (password.checkMatch(input)) {
+        		case -1:
+        			input.clear();
+        			errorLabel.setText("Your password must be " + PassTile.CAPACITY + " points long. You're password so far has been deleted :)");
+        			shell.pack();
+        			return;
+        		case 0:
+        			input.clear();
+        			errorLabel.setText("Your password did not match your entry. Please try again.");
+        			shell.pack();
+        			return;
+        		case 1:
+        			Popup.loginSuccess(display);
+        			shell.dispose();
+        			return;
+        		}
+//            	if (input.size() != PassTile.CAPACITY) {
+//            	} 
+//            	
+//            	Collections.sort(input);
+//            	if (password.getTiles().equals(input)){
+//            	} else {
+//            	}
             }
         });
         
@@ -197,40 +200,11 @@ public class PassTileLogin {
 			return;
 		}
 		
-		// ============== Generating Images to Display ==============
+		// ============== Values & Display Set-up ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
-//		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
-//		remaining.removeAll(password.getTiles()); // should remove users password from remaining (no duplicates)
-		
-		// to display is initially empty then filled with 3 random icons from the users password
-//		ArrayList<String> toDisplay = new ArrayList<String>();
-//		ArrayList<String> userPassword = new ArrayList<String>(password.getTiles());
-//		Random r = new Random();
-		
-		
-//		for (int i = 0; i < PassTile.BANK_STYLE_SIZE; i++) {
-//			int n = r.nextInt(userPassword.size() - 1);
-//			toDisplay.add(userPassword.get(n));
-//			userPassword.remove(n);
-//		}
-//		
-//		ArrayList<String> answer = new ArrayList<String>(toDisplay);
-//		Collections.sort(answer);
 		
 		ArrayList<String> answer = password.generateBankStyleSelection();
-		
-		// (PassTiles.GRID_SIZE - password.getSize()) should account for the initial size of toDisplay
-//		for (int i = 0; i < (PassTile.GRID_SIZE - answer.size()); i++) {
-//			int n = r.nextInt(remaining.size() - 1);
-//			toDisplay.add(remaining.get(n));
-//			remaining.remove(n);
-//		}
-		
-//		Collections.shuffle(toDisplay); // needed to make sure the users password isn't just the first 5 icons
-//		
-//		System.out.println(remaining);
-//		System.out.println(toDisplay);
 		
 		ArrayList<String> toDisplay = PassTile.generateBankStyleGrid(answer, password.getTiles());
 		

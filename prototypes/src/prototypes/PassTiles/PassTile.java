@@ -49,6 +49,25 @@ public class PassTile {
 	}
 	
 	/**
+	 * Checks the input against tiles attribute.
+	 * @param input
+	 * @return 0 - incorrect match (but requirements met), 1 - match
+	 */
+	public int checkMatch(ArrayList<String> input) {
+		if (input.size() != tiles.size()) {
+			System.out.println(input.size());
+			return -1;
+		}
+		Collections.sort(input);
+		if (tiles.equals(input)) {
+			return 1;
+		} else {
+			return 0;
+		}
+		
+	}
+	
+	/**
 	 * Generates a grid of GRID_SIZE random images from the selection available.
 	 * This one is used for registration as it does not take in a password ArrayList.
 	 * @return toDisplay the ArrayList of images for the GUI to display 
@@ -65,10 +84,6 @@ public class PassTile {
 			toDisplay.add(remaining.get(n));
 			remaining.remove(n);
 		}
-		
-		System.out.println(remaining);
-		System.out.println(toDisplay);
-		
 		return toDisplay;
 	}
 	
@@ -93,10 +108,6 @@ public class PassTile {
 		}
 		
 		Collections.shuffle(toDisplay); // Makes sure the users password isn't just the first 5 icons
-		
-		System.out.println(remaining);
-		System.out.println(toDisplay);
-		
 		return toDisplay;
 	}
 	
@@ -112,9 +123,6 @@ public class PassTile {
 			remaining.remove(n);
 		}
 		
-		System.out.println(remaining);
-		System.out.println(toDisplay);
-		
 		Collections.shuffle(toDisplay);
 		return toDisplay;
 	}
@@ -129,8 +137,6 @@ public class PassTile {
 			solution.add(remaining.get(n));
 			remaining.remove(n);
 		}
-		
-		System.out.println(solution);
 		
 		Collections.sort(solution);
 		return solution;

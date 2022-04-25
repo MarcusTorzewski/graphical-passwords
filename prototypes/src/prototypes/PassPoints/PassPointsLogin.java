@@ -36,7 +36,7 @@ public class PassPointsLogin {
 			return;
 		}
 		
-		System.out.println(password.getImageCode());
+//		System.out.println(password.getImageCode());
 		
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/" + PassPoints.PASS_POINTS_IMAGES[password.getImageCode()] + ".jpg";
@@ -147,40 +147,22 @@ public class PassPointsLogin {
         
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
-            	if (input.size() != PassPoints.CAPACITY) {
+            public void widgetSelected(SelectionEvent e) {            	
+            	switch(password.checkMatch(input)) {
+            	case -1:
             		input.clear();
             		errorLabel.setText("You selected too few points! You must select " + PassPoints.CAPACITY + " points. Your current input has been deleted.");
 					shell.pack();
 					return;
-            	}
-            	
-            	int correctCounter = 0;
-            	// needed?
-            	if (input.size() == password.getSize()) {
-            		// trad for loop over for each because i is needed to fetch both sets
-            		for (int i = 0; i < input.size(); i ++) {
-            			TuplePair<Integer> t = input.get(i);
-            			TuplePair<Integer> u = password.getPoints().get(i);
-            			if ((u.getX() - 10 <= t.getX()) && (t.getX() <= u.getX() + 10)) {
-            				if ((u.getY() - 10 <= t.getY()) && (t.getY() <= u.getY() + 10)) {
-            					correctCounter++;
-            					continue;
-            				}
-            				continue;
-            			}
-            		}
-            	}
-            	
-            	if (correctCounter == password.getSize()) {
-            		Popup.loginSuccess(display);
-            		shell.dispose();
-            		return;
-            	} else {
+            	case 0:
             		input.clear();
             		errorLabel.setText("Your password did not match your entry. Please try again.");
 					shell.pack();
 					return;
+            	case 1:
+            		Popup.loginSuccess(display);
+            		shell.dispose();
+            		return;
             	}
             }  
         });
@@ -206,7 +188,7 @@ public class PassPointsLogin {
 		
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		Random r = new Random();
-		int n = r.nextInt(PassPoints.HYBRID_DECOY_IMAGES.length - 1);
+		int n = r.nextInt(PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()].length);
 		String imageFilePath = "./HybridImages/" + PassPoints.HYBRID_KEY_IMAGES[password.getImageCode()] + "-" + 
 				PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()][n]+ ".jpg";
 		System.out.println(imageFilePath);
@@ -285,9 +267,7 @@ public class PassPointsLogin {
 
         photo.addMouseListener(new MouseListener() {        	
 			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				System.out.println(e.x + " " + e.y);
-				
+			public void mouseDoubleClick(MouseEvent e) {				
 				if (input.size() == PassPoints.HYBRID_CAPACITY) {
 					errorLabel.setText("You've already picked " + PassPoints.HYBRID_CAPACITY + " points!");
 					shell.pack();
@@ -317,40 +297,22 @@ public class PassPointsLogin {
         
         confirmButton.addSelectionListener(new SelectionAdapter() {
             @Override
-            public void widgetSelected(SelectionEvent e) {
-            	if (input.size() != PassPoints.HYBRID_CAPACITY) {
+            public void widgetSelected(SelectionEvent e) {            	
+            	switch(password.checkHybridMatch(input)) {
+            	case -1:
             		input.clear();
             		errorLabel.setText("You selected too few points! You must select " + PassPoints.CAPACITY + " points. Your current input has been deleted.");
 					shell.pack();
 					return;
-            	}
-            	
-            	int correctCounter = 0;
-            	// needed?
-            	if (input.size() == password.getSize()) {
-            		// trad for loop over for each because i is needed to fetch both sets
-            		for (int i = 0; i < input.size(); i ++) {
-            			TuplePair<Integer> t = input.get(i);
-            			TuplePair<Integer> u = password.getPoints().get(i);
-            			if ((u.getX() - 20 <= t.getX()) && (t.getX() <= u.getX() + 20)) {
-            				if ((u.getY() - 20 <= t.getY()) && (t.getY() <= u.getY() + 20)) {
-            					correctCounter++;
-            					continue;
-            				}
-            				continue;
-            			}
-            		}
-            	}
-            	
-            	if (correctCounter == password.getSize()) {
-            		Popup.loginSuccess(display);
-            		shell.dispose();
-            		return;
-            	} else {
+            	case 0:
             		input.clear();
             		errorLabel.setText("Your password did not match your entry. Please try again.");
 					shell.pack();
 					return;
+            	case 1:
+            		Popup.loginSuccess(display);
+            		shell.dispose();
+            		return;
             	}
             }  
         });

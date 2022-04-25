@@ -80,7 +80,6 @@ public class PassTileRegistration {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	System.out.println(value);
         	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	
@@ -99,10 +98,8 @@ public class PassTileRegistration {
     					return;
         			}
         			
-    				errorLabel.setText("");
-        			
+    				errorLabel.setText("");	
         			input.add(value);
-        			System.out.println(input);
         		}
         	});
         }
