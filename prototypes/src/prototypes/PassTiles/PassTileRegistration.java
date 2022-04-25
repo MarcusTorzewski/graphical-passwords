@@ -2,8 +2,6 @@ package prototypes.PassTiles;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -27,24 +25,11 @@ public class PassTileRegistration {
 	 */
 	public static void register(Display display, PassTile password) {
 		
-		// ============== Generating Images to Display ==============
+		// ============== Values & Display Set-up ==============
 		
 		ArrayList<String> input = new ArrayList<String>();
-		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
-		ArrayList<String> toDisplay = new ArrayList<String>();
-		Random r = new Random();
 		
-		// toDisplay is populated randomly with GRID_SIZE strings from remaining
-		// toDisplay is then used to populate the GUI
-		for (int i = 0; i < PassTile.GRID_SIZE; i++) {
-			int n = r.nextInt(remaining.size() - 1);
-			toDisplay.add(remaining.get(n));
-			remaining.remove(n);
-		}
-		
-		System.out.println(remaining);
-		System.out.println(toDisplay);
-		
+		ArrayList<String> toDisplay = PassTile.generateGrid();
 		
 		// ============== Creating the display ==============
 		
@@ -63,7 +48,7 @@ public class PassTileRegistration {
  		
  		
  		Label infoLabel = new Label(shell, SWT.NONE);
- 		infoLabel.setText("Double-click on " + PassTile.CAPACITY + "  image:");
+ 		infoLabel.setText("Click on " + PassTile.CAPACITY + "  image:");
  		gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
  		gridData.horizontalSpan = 3;
         infoLabel.setLayoutData(gridData);
