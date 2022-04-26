@@ -121,24 +121,25 @@ public class AlphaLogin {
 		
 		// ============== Generating an answer ==============
 		
-		String answer = "";  // Seeing as we don't need to look at letters individually String is fine
-		ArrayList<Integer> digits = new ArrayList<Integer>();
-		Random rand = new Random();
+//		String answer = "";  // Seeing as we don't need to look at letters individually String is fine
+//		ArrayList<Integer> digits = new ArrayList<Integer>();
+//		Random rand = new Random();
+//		
+//		for (int i = 0; i < password.getPassword().length(); i++) {
+//			digits.add(i);
+//		}
+//		
+//		while(digits.size() > AlphanumericPassword.BANK_STYLE_SIZE) {
+//			int x = rand.nextInt(digits.size());
+//			digits.remove(x);
+//		}		
+//		
+//		for (int i = 0; i < digits.size(); i++) {
+//			answer += password.getPassword().charAt(digits.get(i));
+//		}
 		
-		// Populates the digits array with every digit...
-		for (int i = 0; i < password.getPassword().length(); i++) {
-			digits.add(i);
-		}
-		
-		// ...then pops random numbers from the digits array until it is the size of BANK_STYLE_ARRAY
-		while(digits.size() > AlphanumericPassword.BANK_STYLE_SIZE) {
-			int x = rand.nextInt(digits.size());
-			digits.remove(x);
-		}		
-		
-		for (int i = 0; i < digits.size(); i++) {
-			answer += password.getPassword().charAt(digits.get(i));
-		}
+		ArrayList<Integer >digits = password.generateBankStyleDigits();
+		String answer = password.generateBankStyleAnswer(digits);
 		
 		System.out.println(digits);
 		System.out.println(answer);

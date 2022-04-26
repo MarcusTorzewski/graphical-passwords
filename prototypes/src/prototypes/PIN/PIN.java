@@ -25,6 +25,10 @@ public class PIN {
 		return isSet;
 	}
 	
+	public boolean checkMatch(ArrayList<Integer> input) {
+		return (this.password.equals(input)) ? true : false;
+	}
+	
 	public void clearPassword() {
 		this.password = null;
 		this.isSet = false;

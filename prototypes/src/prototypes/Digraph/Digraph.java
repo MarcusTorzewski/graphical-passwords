@@ -22,13 +22,13 @@ public class Digraph {
 		tiles = null;
 	}
 	
+	public TuplePair<String> getTiles() {
+		return tiles;
+	}
+	
 	public void setTiles(TuplePair<String> tiles) {
 		this.tiles = tiles;
 		this.isSet = true;
-	}
-	
-	public TuplePair<String> getTiles() {
-		return tiles;
 	}
 	
 	public boolean isSet() {

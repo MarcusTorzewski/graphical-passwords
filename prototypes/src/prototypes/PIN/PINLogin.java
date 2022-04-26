@@ -128,7 +128,7 @@ public class PINLogin {
             	}
             	
             	
-            	if (password.getPassword().equals(input)) {
+            	if (password.checkMatch(input)) {
 					Popup.loginSuccess(display);
 					shell.dispose();
             	} else {
