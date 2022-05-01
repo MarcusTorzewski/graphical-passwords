@@ -530,6 +530,8 @@ public class Homepage {
  		shell.pack();
         shell.open();
         
+        
+        // this block displays the status of each methodology using isSet()
         while (!shell.isDisposed()) {
         	if (!display.readAndDispatch()) {
         		display.sleep();

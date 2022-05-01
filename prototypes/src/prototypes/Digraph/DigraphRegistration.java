@@ -48,7 +48,6 @@ public class DigraphRegistration {
 			toDisplay.add(remaining.get(n));
 			remaining.remove(n);
 		}
-//		System.out.println(toDisplay);
 		
 		
 		// ============== Creating the display ==============
@@ -99,7 +98,6 @@ public class DigraphRegistration {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-//        	System.out.println(value);
         	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	

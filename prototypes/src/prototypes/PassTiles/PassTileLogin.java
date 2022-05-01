@@ -162,13 +162,6 @@ public class PassTileLogin {
         			shell.dispose();
         			return;
         		}
-//            	if (input.size() != PassTile.CAPACITY) {
-//            	} 
-//            	
-//            	Collections.sort(input);
-//            	if (password.getTiles().equals(input)){
-//            	} else {
-//            	}
             }
         });
         
@@ -186,7 +179,7 @@ public class PassTileLogin {
 	}
 	
 	/**
-	 * Alternative login methodology for PassTile passwords. User must select the amount
+	 * Alternative login methodology for PassTile passwords. User must select a subset
 	 * of images from their password specified by the window. Order is not preserved and
 	 * they can select them in any order.
 	 * 
@@ -257,7 +250,6 @@ public class PassTileLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	System.out.println(value);
         	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	

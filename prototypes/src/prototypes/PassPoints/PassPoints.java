@@ -57,6 +57,11 @@ public class PassPoints {
 		this.imageCode = -1;
 	}
 	
+	/**
+	 * Checks the input against points attribute coordinate by coordinate giving a leeway of 10 pixels
+	 * @param input
+	 * @return 0 - incorrect match (but requirements met), 1 - match, -1 - incorrect size
+	 */
 	public int checkMatch(ArrayList<TuplePair<Integer>> input) {
 		if (input.size() != points.size()) {
 			return -1;
@@ -85,13 +90,17 @@ public class PassPoints {
 		}
 	}
 	
+	/**
+	 * Checks the input against points attribute coordinate by coordinate giving a leeway of 20 pixels
+	 * @param input
+	 * @return 0 - incorrect match (but requirements met), 1 - match, -1 - incorrect size
+	 */
 	public int checkHybridMatch(ArrayList<TuplePair<Integer>> input) {
 		if (input.size() != points.size()) {
 			return -1;
 		}
 		
 		int correctCounter = 0;
-    	// needed?
     	if (input.size() == points.size()) {
     		// trad for loop over for each because i is needed to fetch both sets
     		for (int i = 0; i < input.size(); i ++) {

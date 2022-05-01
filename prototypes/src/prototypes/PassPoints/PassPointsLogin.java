@@ -36,11 +36,9 @@ public class PassPointsLogin {
 			return;
 		}
 		
-//		System.out.println(password.getImageCode());
-		
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		String imageFilePath = "./Images/" + PassPoints.PASS_POINTS_IMAGES[password.getImageCode()] + ".jpg";
-		System.out.println(imageFilePath);
+		
 		
 		// ============== Creating the display ==============
 		
@@ -115,9 +113,7 @@ public class PassPointsLogin {
 
         photo.addMouseListener(new MouseListener() {        	
 			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				System.out.println(e.x + " " + e.y);
-				
+			public void mouseDoubleClick(MouseEvent e) {				
 				if (input.size() == PassPoints.CAPACITY) {
 					errorLabel.setText("You've already picked " + PassPoints.CAPACITY + " points!");
 					shell.pack();
@@ -180,6 +176,15 @@ public class PassPointsLogin {
         return;
 	}
 	
+	/**
+	 * Hybrid login methodology User re-selects the rough locations 
+	 * that they chose in registration, order must be preserved for a successful attempt.
+	 * Lee-way will be given to the user; points doesn't need to be pixel perfect.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password the hybrid password set at registration - if the password 
+	 * is not set a pop-up is displayed to say as such
+	 */
 	public static void hybridLogin(Display display, PassPoints password) {
 		if (!password.isSet()) {
 			Popup.passwordNotSet(display, 1);
@@ -191,7 +196,6 @@ public class PassPointsLogin {
 		int n = r.nextInt(PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()].length);
 		String imageFilePath = "./HybridImages/" + PassPoints.HYBRID_KEY_IMAGES[password.getImageCode()] + "-" + 
 				PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()][n]+ ".jpg";
-		System.out.println(imageFilePath);
 
 		
 		// ============== Creating the display ==============

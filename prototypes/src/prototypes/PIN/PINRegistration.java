@@ -141,7 +141,10 @@ public class PINRegistration {
 		return;
 	}
 	
-	
+	/**
+	 * Simple methodology which empties each text box when the user presses clear
+	 * @param textBoxes the array of textBoxes (which contain numbers) to be cleared
+	 */
 	public static void emptyTextBoxes(ArrayList<Text> textBoxes) {
 		for (int i = 0; i < textBoxes.size(); i++) {
 			Text textBox = textBoxes.get(i);

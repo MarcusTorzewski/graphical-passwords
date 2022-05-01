@@ -29,7 +29,7 @@ public class DigraphLogin {
 	 * if a key image appears at the end of a row or column; the pass image can also
 	 * be the same as one of the key images if they appear next to each other in the 
 	 * grid. It the key images appear in neither the same row or image - the user 
-	 * selects on of the images that forma rectangle with the pass images.
+	 * selects on of the images that form a rectangle with the pass images.
 	 * 
 	 * @param display the display in use created by a parent call
 	 * @param password Digraph password set at registration - if the password is not
@@ -59,8 +59,6 @@ public class DigraphLogin {
 		}
 		
 		Collections.shuffle(toDisplay);
-		System.out.println(toDisplay);
-		
 		
 		ArrayList<ArrayList <String>> digraph = new ArrayList<ArrayList <String>>(); // this 2d array is used to find the solutions
 		
@@ -84,11 +82,9 @@ public class DigraphLogin {
 			if (t.equals(password.getTiles().getX())) {
 				aX = x;
 				aY = y;
-//				System.out.println(aX + "," + aY);
 			} else if (t.equals(password.getTiles().getY())) {
 				bX = x;
 				bY = y;
-//				System.out.println(bX + "," + bY);
 			}
 			
 			y++;
@@ -105,8 +101,6 @@ public class DigraphLogin {
 			return;
 		}
 		
-//		System.out.println(digraph);
-		
 		
 		// ============== Finding the answers ==============
 		
@@ -115,7 +109,6 @@ public class DigraphLogin {
 		
 		// if a and b are in the same row
 		if (aX == bX) {
-			System.out.println("here!");
 			answer1X = aX;
 			answer2X = aX;
 			answer1Y = aY + 1;
@@ -130,7 +123,6 @@ public class DigraphLogin {
 		
 		// if a and b are in the same column
 		else if (aY == bY) {
-			System.out.println("there!");
 			answer1Y = aY;
 			answer2Y = aY;
 			answer1X = aX + 1;
@@ -145,20 +137,14 @@ public class DigraphLogin {
 		
 		// if a and b are in separate rows and columns
 		else {
-			System.out.println("down here!");
 			answer1X = aX;
 			answer1Y = bY;
 			answer2X = bX;
 			answer2Y = aY;
 		}
 		
-//		System.out.println(answer1X + "," + answer1Y);
-//		System.out.println(answer2X + "," + answer2Y);
-		
 		answers.add(digraph.get(answer1X).get(answer1Y));
 		answers.add(digraph.get(answer2X).get(answer2Y));
-		
-//		System.out.println(answers);
 		
 		
 		// ============== Creating the display ==============
@@ -210,7 +196,6 @@ public class DigraphLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-//        	System.out.println(value);
         	Image image = new Image(display, DigraphLogin.class.getResourceAsStream("./Images/" + value + ".png"));
         	tile.setImage(image);
         	
@@ -227,7 +212,6 @@ public class DigraphLogin {
         			errorLabel.setText("");
         			
         			DigraphLogin.input = value;
-        			System.out.println(input);
         		}
         	});
         }

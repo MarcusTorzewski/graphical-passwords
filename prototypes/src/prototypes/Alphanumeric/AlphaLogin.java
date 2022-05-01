@@ -119,30 +119,11 @@ public class AlphaLogin {
 			return;
 		}
 		
-		// ============== Generating an answer ==============
 		
-//		String answer = "";  // Seeing as we don't need to look at letters individually String is fine
-//		ArrayList<Integer> digits = new ArrayList<Integer>();
-//		Random rand = new Random();
-//		
-//		for (int i = 0; i < password.getPassword().length(); i++) {
-//			digits.add(i);
-//		}
-//		
-//		while(digits.size() > AlphanumericPassword.BANK_STYLE_SIZE) {
-//			int x = rand.nextInt(digits.size());
-//			digits.remove(x);
-//		}		
-//		
-//		for (int i = 0; i < digits.size(); i++) {
-//			answer += password.getPassword().charAt(digits.get(i));
-//		}
+		// ============== Generating an answer ==============
 		
 		ArrayList<Integer >digits = password.generateBankStyleDigits();
 		String answer = password.generateBankStyleAnswer(digits);
-		
-		System.out.println(digits);
-		System.out.println(answer);
 		
 		
 		// ============== Creating the display ==============
@@ -207,8 +188,6 @@ public class AlphaLogin {
         gridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
         gridData.horizontalSpan = 4;
         confirmButton.setLayoutData(gridData);
-        
-        String a = answer;  // this is a hack. i do not like it
 
         confirmButton.addSelectionListener(new SelectionAdapter() {
         	@Override
@@ -228,7 +207,7 @@ public class AlphaLogin {
         		}
         		
         		System.out.println(input);
-        		if (a.equals(input)) {
+        		if (answer.equals(input)) {
         			Popup.loginSuccess(display);
             		shell.dispose();
             		return;
@@ -266,7 +245,10 @@ public class AlphaLogin {
 		return;
 	}
 	
-	
+	/**
+	 * Simple methodology which empties each text box when the user presses clear
+	 * @param textBoxes the array of textBoxes to be cleared
+	 */
 	public static void emptyTextBoxes(ArrayList<Text> textBoxes) {
 		for (int i = 0; i < textBoxes.size(); i++) {
 			Text textBox = textBoxes.get(i);

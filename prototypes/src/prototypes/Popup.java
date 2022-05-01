@@ -131,8 +131,8 @@ public class Popup {
 	
 	/**
 	 * Creates pop-up window informing the user how the methodology selected works. 
-	 * @param display the display in use created by a parent call.
 	 * 
+	 * @param display the display in use created by a parent call. 
 	 * @param methodologyType int corresponding to the methodology 0 - alphanumeric 1 - PassPoints/Hybrid
 	 * 2 - PassTile 3 - Digraph 4 - PIN
 	 */
@@ -363,7 +363,7 @@ public class Popup {
 	}
 	
 	/**
-	 * Creates a pop-up window showing the user their selection, it is shown just after the complete
+	 * Creates a pop-up window showing the user their selection, it is shown just after they complete
 	 * registration. This is to make their selection clear and easier to memorise. It is only for
 	 * tile based implementations (PassTiles & Digraph)
 	 * 

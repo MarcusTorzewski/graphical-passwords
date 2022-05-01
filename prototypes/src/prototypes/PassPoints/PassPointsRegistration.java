@@ -179,6 +179,14 @@ public class PassPointsRegistration {
 	}
 	
 	
+	/**
+	 * Standard registration method for hybrid PassPoints. User selects three points on
+	 * a randomly selected image, order is preserved in the password.
+	 * 
+	 * @param display the display in use created by a parent call
+	 * @param password a PassPoints class the password - isSet() can be either true or false; 
+	 * any existing password will be overwritten.
+	 */
 	public static void hybridRegister(Display display, PassPoints password) {
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		Random r = new Random();

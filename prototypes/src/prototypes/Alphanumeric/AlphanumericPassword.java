@@ -36,6 +36,11 @@ public class AlphanumericPassword {
 		this.isSet = false;
 	}
 	
+	/**
+	 * Generates a series of digits corresponding to the points in the String. 
+	 * This can then be used by the GUI class to fetch the characters using the generateBankStyleAnswer() method
+	 * @return
+	 */
 	public ArrayList<Integer> generateBankStyleDigits() {
 		ArrayList<Integer> digits = new ArrayList<Integer>();
 		Random r = new Random();
@@ -54,6 +59,11 @@ public class AlphanumericPassword {
 		return digits;
 	}
 	
+	/**
+	 * Generates the bank-style answer from an array of digits
+	 * @param digits array of indexes for the password, most likely created by generateBankStyleDIgits()
+	 * @return
+	 */
 	public String generateBankStyleAnswer(ArrayList<Integer> digits) {
 		String answer = "";
 		for (int i = 0; i < digits.size(); i++) {

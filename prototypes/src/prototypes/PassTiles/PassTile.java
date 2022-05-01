@@ -51,7 +51,7 @@ public class PassTile {
 	/**
 	 * Checks the input against tiles attribute.
 	 * @param input
-	 * @return 0 - incorrect match (but requirements met), 1 - match
+	 * @return 0 - incorrect match (but requirements met), 1 - match, -1 - incorrect size
 	 */
 	public int checkMatch(ArrayList<String> input) {
 		if (input.size() != tiles.size()) {
@@ -89,8 +89,8 @@ public class PassTile {
 	
 	/**
 	 * Generates a grid of GRID_SIZE random images from the selection available.
-	 * This one is used for registration as it does not take in a password ArrayList.
-	 * @param p the password attribute of a PassTile class
+	 * This one is used for login as it takes in a password ArrayList which is added to the toDisplay value that is returned.
+	 * @param password the password attribute of a PassTile class
 	 * @return toDisplay the ArrayList of images for the GUI to display
 	 */
 	public static ArrayList<String> generateGrid(ArrayList<String> password) {
@@ -111,6 +111,12 @@ public class PassTile {
 		return toDisplay;
 	}
 	
+	/**
+	 * Generates a grid of GRID_SIZE random images including the bank-style selection from the password
+	 * @param selection the values to be included in toDisplay alongside the random images
+	 * @param password the full password so the function know which tiles cannot be included (i.e., the ones not present in selection)
+	 * @return toDisplay the ArrayList of images for the GUI to display
+	 */
 	public static ArrayList<String> generateBankStyleGrid(ArrayList<String> selection, ArrayList<String> password) {
 		ArrayList<String> remaining = new ArrayList<String>(PassTile.ALL_TILES);
 		ArrayList<String> toDisplay = new ArrayList<String>(selection);
@@ -127,6 +133,10 @@ public class PassTile {
 		return toDisplay;
 	}
 	
+	/**
+	 * Generates a selection from tiles for use in the bank-style login variation
+	 * @return solution an array of strings which is a subset of tiles
+	 */
 	public ArrayList<String> generateBankStyleSelection() {
 		ArrayList<String> solution = new ArrayList<String>();
 		ArrayList<String> remaining = new ArrayList<String>(tiles);
