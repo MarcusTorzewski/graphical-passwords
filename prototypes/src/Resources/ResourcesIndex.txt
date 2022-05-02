@@ -1,7 +1,6 @@
 Resources:
 - Images
 - Tutorials
-- Advice (for methodologies and implementation decisions)
 
 	Images:
 	- https://www.behance.net/gallery/54310993/WEO-ICONS-Free-Icon-Set
@@ -23,9 +22,9 @@ Resources:
 		https://www.freeimages.com/photo/beach-boat-1535703			- beach
 		https://www.freeimages.com/photo/cat-1407260				- cat
 		https://www.freeimages.com/photo/lemon-1198617				- lime (its a lime)
-		https://www.freeimages.com/photo/in-the-kitchen-1327655		- salad
+		https://www.freeimages.com/photo/in-the-kitchen-1327655			- salad
 		https://www.freeimages.com/photo/grating-1197485			- fence
-		https://www.freeimages.com/photo/typical-old-district-4-1219129	- street
+		https://www.freeimages.com/photo/typical-old-district-4-1219129		- street
 		https://www.freeimages.com/photo/landscape-1387468			- landscape
 	
 	
@@ -38,8 +37,3 @@ Resources:
 		Used a mixture of these as references and tutorials to familiarise myself with SWT
 	- https://stackoverflow.com/questions/4447455/how-to-show-up-an-image-with-swt-in-java
 		Used to implement an image in SWT
-	
-	
-	Methodology/implementation advice:
-	- https://www.pixelpin.io/how-to-choose-a-good-picture/
-		advice for which images suit PassPoints
