@@ -159,7 +159,9 @@ public class PassTileRegistration {
         	}
         }
         
-        Popup.displaySelection(display, password.getTiles());
+        if (password.isSet()) {
+        	Popup.displaySelection(display, password.getTiles());
+        }
         
         return;
 	}

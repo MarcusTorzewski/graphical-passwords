@@ -178,7 +178,9 @@ public class DigraphRegistration {
         	}
         }
         
-        Popup.displaySelection(display, input);
+        if (password.isSet()) {
+        	Popup.displaySelection(display, input);
+        }
         
         return;
 	}
