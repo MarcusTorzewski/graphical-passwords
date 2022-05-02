@@ -36,7 +36,7 @@ public class PassPointsRegistration {
 		Random r = new Random();
 		int n = r.nextInt(PassPoints.PASS_POINTS_IMAGES.length);
 		
-		String imageFilePath = "./Images/" + PassPoints.PASS_POINTS_IMAGES[n] + ".jpg";
+		String imageFilePath = "/images/" + PassPoints.PASS_POINTS_IMAGES[n] + ".jpg";
 		
 
 		
@@ -192,7 +192,7 @@ public class PassPointsRegistration {
 		Random r = new Random();
 		int n = r.nextInt(PassPoints.HYBRID_KEY_IMAGES.length - 1);
 		
-		String imageFilePath = "./HybridImages/" + PassPoints.HYBRID_KEY_IMAGES[n] + ".jpg";
+		String imageFilePath = "/hybrid/" + PassPoints.HYBRID_KEY_IMAGES[n] + ".jpg";
 		
 		
 		// ============== Creating the display ==============

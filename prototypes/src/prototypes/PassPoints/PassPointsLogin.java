@@ -37,7 +37,7 @@ public class PassPointsLogin {
 		}
 		
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
-		String imageFilePath = "./Images/" + PassPoints.PASS_POINTS_IMAGES[password.getImageCode()] + ".jpg";
+		String imageFilePath = "/images/" + PassPoints.PASS_POINTS_IMAGES[password.getImageCode()] + ".jpg";
 		
 		
 		// ============== Creating the display ==============
@@ -194,7 +194,7 @@ public class PassPointsLogin {
 		ArrayList<TuplePair<Integer>> input = new ArrayList<TuplePair<Integer>>();
 		Random r = new Random();
 		int n = r.nextInt(PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()].length);
-		String imageFilePath = "./HybridImages/" + PassPoints.HYBRID_KEY_IMAGES[password.getImageCode()] + "-" + 
+		String imageFilePath = "/hybrid/" + PassPoints.HYBRID_KEY_IMAGES[password.getImageCode()] + "-" + 
 				PassPoints.HYBRID_DECOY_IMAGES[password.getImageCode()][n]+ ".jpg";
 
 		

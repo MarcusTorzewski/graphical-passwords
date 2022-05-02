@@ -211,19 +211,19 @@ public class Popup {
 						+ "directly after the other key image.\n\n"
 						+ "To clear your password simply register again.");
 				
-				Image image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-1.png"));
+				Image image = new Image(display, Popup.class.getResourceAsStream("/resources/help-image-1.png"));
 				Label helpDiagramRowPhoto = new Label(shell, SWT.BORDER);
 				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
 				helpDiagramRowPhoto.setLayoutData(gridData);
 				helpDiagramRowPhoto.setImage(image);
 				
-				image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-2.png"));
+				image = new Image(display, Popup.class.getResourceAsStream("/resources/help-image-2.png"));
 				Label helpDiagramColumnPhoto = new Label(shell, SWT.BORDER);
 				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
 				helpDiagramColumnPhoto.setLayoutData(gridData);
 				helpDiagramColumnPhoto.setImage(image);
 				
-				image = new Image(display, Popup.class.getResourceAsStream("./Digraph/Images/help-image-3.png"));
+				image = new Image(display, Popup.class.getResourceAsStream("/resources/help-image-3.png"));
 				Label helpDiagramRectanglePhoto = new Label(shell, SWT.BORDER);
 				gridData = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, false);
 				helpDiagramRectanglePhoto.setLayoutData(gridData);
@@ -402,7 +402,7 @@ public class Popup {
         	
         	String value = selection.get(i);
         	System.out.println(value);
-        	Image image = new Image(display, DigraphRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, DigraphRegistration.class.getResourceAsStream("/icons/" + value + ".png"));
         	tile.setImage(image);
         }
         

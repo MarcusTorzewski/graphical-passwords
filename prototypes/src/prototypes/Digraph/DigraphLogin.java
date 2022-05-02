@@ -196,7 +196,7 @@ public class DigraphLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	Image image = new Image(display, DigraphLogin.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, DigraphLogin.class.getResourceAsStream("/icons/" + value + ".png"));
         	tile.setImage(image);
         	
         	tile.addSelectionListener(new SelectionAdapter() {

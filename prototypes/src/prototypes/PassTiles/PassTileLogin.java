@@ -88,7 +88,7 @@ public class PassTileLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	Image image = new Image(display, PassTileLogin.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, PassTileLogin.class.getResourceAsStream("/icons/" + value + ".png"));
         	tile.setImage(image);
         	
         	tile.addSelectionListener(new SelectionAdapter() {
@@ -249,7 +249,7 @@ public class PassTileLogin {
         	
         	// setting the image
         	String value = toDisplay.get(i);
-        	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("./Images/" + value + ".png"));
+        	Image image = new Image(display, PassTileRegistration.class.getResourceAsStream("/icons/" + value + ".png"));
         	tile.setImage(image);
         	
         	tile.addSelectionListener(new SelectionAdapter() {
