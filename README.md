@@ -10,7 +10,7 @@ Please choose the structure of the contents of this repository that suits the ne
 
 ## Installation instructions
 
-The primary way to view the running program is through the .jar file titled project in the root of the repository. This runs on windows with JRE 57.0. It has been tested and works on Windows 10. 
+The primary way to view the running program is through the .jar file titled project in the root of the repository. This runs on windows with JRE 57.0. It has been tested and works on Windows 10. It may well be downloaded as a .jar.zip. Simply remove the .zip extension and it should run.
 
 The project code is contained entirely within the 'prototypes' java project. This can be imported into eclipse alongside the 'org.eclipse.SWT' library also present in the repo. The project compiles with Java 13. This works on Windows 10, with Eclipse 2021-09. It does not work on the Linux machines due to unknown reasons.
 
