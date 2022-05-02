@@ -7,7 +7,7 @@ Resources:
 		Used as the icons for PassTiles images
 	- pass points:
 		https://www.freeimages.com/photo/so-busy-1469030			- crowd
-		FLUID????
+		https://www.freeimages.com/photo/hooligans-1436861			- hooligans
 		https://www.freeimages.com/photo/new-york-streets-3-1551331	- newyork
 	
 	- hybrid images:

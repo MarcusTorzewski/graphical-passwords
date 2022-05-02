@@ -7,7 +7,7 @@ import prototypes.TuplePair;
 public class PassPoints {
 	public static final int CAPACITY = 5;
 	public static final int HYBRID_CAPACITY = 3; // reduced because images have less detail
-	public static final String[] PASS_POINTS_IMAGES = {"fluid","crowd","newyork"};
+	public static final String[] PASS_POINTS_IMAGES = {"hooligans","crowd","newyork"};
 	public static final String[] HYBRID_KEY_IMAGES = {"bird","cube","tree"};
 	public static final String[][] HYBRID_DECOY_IMAGES = {{"beach","flowers","gauge","lime","plane"},
 			{"gauge","lime","plane","salad","street"},
