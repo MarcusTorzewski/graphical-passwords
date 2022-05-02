@@ -1,7 +1,6 @@
 package prototypes.Alphanumeric;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;

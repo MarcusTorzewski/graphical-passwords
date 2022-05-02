@@ -2,7 +2,6 @@ package prototypes.PassTiles;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
