@@ -1,4 +1,6 @@
-# Your project name here
+# Graphical Passwords as a Method to Protect Against Shoulder-Surfing
+
+## Marcus Torzewski, 199015864, mt420
 
 ## Information about this repository
 
@@ -10,12 +12,16 @@ Please choose the structure of the contents of this repository that suits the ne
 
 ## Installation instructions
 
-The primary way to view the running program is through the .jar file titled project in the root of the repository. This runs on windows with JRE 57.0. It has been tested and works on Windows 10. It may well be downloaded as a .jar.zip. Simply remove the .zip extension and it should run.
+The primary way to view the running program is through the .jar file titled project in the root of the repository. It has been tested and works on Windows 10 with JRE 57.0. It will likely be downloaded as a .jar.zip. Simply remove the .zip extension and it should run.
 
-The project code is contained entirely within the 'prototypes' java project. This can be imported into eclipse alongside the 'org.eclipse.SWT' library also present in the repo. The project compiles with Java 13. This works on Windows 10, with Eclipse 2021-09. It does not work on the Linux machines due to unknown reasons.
+The project code is contained entirely within the 'prototypes' java project. This can be imported into Eclipse alongside the 'org.eclipse.SWT' library also present in the repo. The project compiles with Java 13. This works on Windows 10, with Eclipse 2021-09. This should work automatically and no additional set up should be needed. 'src.prototypes.main.java' is the main java class for the entire project. It does not work on the Linux machines due to unknown reasons.
 
-The 'SWT-Practise' project contains a few simple SWT classes that follow some online tutorials. These were done to familiarise myself with SWT. The tutorials used are listed inside the classes as comments.
+The 'SWT-Practice' project contains a few simple SWT classes that follow some online tutorials. These were done to familiarise myself with SWT. The tutorials used are listed inside the classes as comments and in the resources-index.txt.
 
 ## Resources
 
-The resources used are listed in the sources-index.txt found in 'prototypes.res.resources'. Here you can see the links to images/icons used and tutorials used. All images and icons were free for non-commercial use.
+The resources used are listed in the sources-index.txt found in 'prototypes.res.resources'. Here you can see the links to images/icons used and tutorials followed for the 'SWT-Practice' files. All images and icons were free for non-commercial use.
+
+## Project Files Folder
+
+The 'Project Files' folder contains non-software project artefacts. These include the software test plan, the original and updated gantt charts for the project, and mockup images for the designs of the software.
