@@ -1,6 +1,6 @@
 # Graphical Passwords as a Method to Protect Against Shoulder-Surfing
 
-## Marcus Torzewski, 199015864, mt420
+## Marcus Torzewski
 
 ## Information about this repository
 
