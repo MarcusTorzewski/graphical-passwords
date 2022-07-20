@@ -2,7 +2,9 @@
 
 ## Marcus Torzewski
 
-## Information about this repository
+This was my third year solo project during my time at Leicester. It featured a Java Swift program compromising multiple graphical password methodologies for user testing (which I also carried out). The installation instructions apply to the uni system, but the .jar file should work if JRE 57.0 is installed.
+
+## Information about this repository (Automated Message)
 
 This is the repository that you are going to use **individually** for developing your project. Please use the resources provided in the module to learn about **plagiarism** and how plagiarism awareness can foster your learning.
 
