@@ -2,7 +2,7 @@
 
 ## Marcus Torzewski
 
-This was my third year solo project during my time at Leicester. It featured a Java Swift program compromising multiple graphical password methodologies for user testing (which I also carried out). The installation instructions apply to the uni system, but the .jar file should work if JRE 57.0 is installed.
+This was my third year solo project during my time at Leicester. It featured a Java SWT program compromising multiple graphical password methodologies for user testing (which I also carried out). The installation instructions apply to the uni system, but the .jar file should work if JRE 57.0 is installed.
 
 ## Information about this repository (Automated Message)
 
